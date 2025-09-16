@@ -1,0 +1,56 @@
+{
+    "product.ecosystem": {
+        "message": "ARCHITECTURE"
+    },
+    "product_analytics.description": {
+        "message": "Graph-based unified stream-batch processing enables efficient complex relationship computations, supporting integrated table-graph real-time analysis."
+    },
+    "product.btn.desc": {
+        "message": "Start the experience"
+    },
+    "product.intro": {
+        "message": "OVERVIEW"
+    },
+    "product.intro.desc": {
+        "message": "Apache GeaFlow (Incubating) is a distributed unified stream-batch graph computing product that supports core capabilities including mixed table-graph processing, real-time graph computing, and interactive graph analysis. It provides high availability and one-stop cloud-native development and deployment capabilities. Based on Ant Group's self-developed trillion-scale graph computing practices, GeaFlow is currently widely applied in scenarios such as data warehouse acceleration, financial risk control, knowledge graphs, and social networks. GeaFlow has now become an incubator project of the Apache Software Foundation (ASF)."
+    },
+    "product.repo": {
+        "message": "TuGraph Family"
+    },
+    "product_analytics.feature.title0": {
+        "message": "Dynamic Graph Computing"
+    },
+    "product_analytics.feature.desc0": {
+        "message": "Supporting dynamic graph analytics and improving real-time performance of graph computing results."
+    },
+    "product_analytics.feature.title1": {
+        "message": "Hybrid Graph/Table Processing"
+    },
+    "product_analytics.feature.desc1": {
+        "message": "Providing the capability to process hybrid graph and tabular data models by a fusion language (SQL + GQL)."
+    },
+    "product_analytics.feature.title2": {
+        "message": "Unified Stream/Batch/Graph Computing"
+    },
+    "product_analytics.feature.desc2": {
+        "message": "Supporting unified stream computing, batch processing and graph computing by cycle-based and event-driven scheduling mechanisms."
+    },
+    "product_analytics.feature.title3": {
+        "message": "Cloud Native Deployment"
+    },
+    "product_analytics.feature.desc3": {
+        "message": "Supporting multiple execution environments like kubernetes, and providing graph job development tools and rapid deployment on clouds."
+    },
+    "product_analytics.feature.title4": {
+        "message": "Native Graph Storage"
+    },
+    "product_analytics.feature.desc4": {
+        "message": "Providing a native graph oriented storage system, supporting high-performance I/O and computation pushdown."
+    },
+    "product_analytics.feature.title5": {
+        "message": "Interactive Graph Analysis"
+    },
+    "product_analytics.feature.desc5": {
+        "message": "Enabling interactive real-time analytics of graph data, allowing rapid integration with business intelligence and visualization tools. "
+    }
+}

@@ -1,0 +1,58 @@
+{
+    "item.label.Docs": {
+        "message": "文档",
+        "description": "Navbar item with label Community"
+    },
+    "item.label.Community": {
+        "message": "社区",
+        "description": "Navbar item with label Community"
+    },
+    "item.label.Download": {
+        "message": "下载",
+        "description": "Navbar item with label Download"
+    },
+    "item.label.Blog": {
+        "message": "博客",
+        "description": "Navbar item with label Blog"
+    },
+    "item.label.ASF": {
+        "message": "ASF",
+        "description": "Navbar item with label ASF"
+    },
+    "item.label.Foundation": {
+        "message": "基金会",
+        "description": "Navbar item with label Foundation"
+    },
+    "item.label.License": {
+        "message": "许可证",
+        "description": "Navbar item with label License"
+    },
+    "item.label.Events": {
+        "message": "事件",
+        "description": "Navbar item with label Events"
+    },
+    "item.label.Privacy": {
+        "message": "隐私",
+        "description": "Navbar item with label Privacy"
+    },
+    "item.label.Security": {
+        "message": "安全",
+        "description": "Navbar item with label Security"
+    },
+    "item.label.Sponsorship": {
+        "message": "赞助",
+        "description": "Navbar item with label Sponsorship"
+    },
+    "item.label.Thanks": {
+        "message": "感谢",
+        "description": "Navbar item with label Thanks"
+    },
+    "item.label.Code of Conduct": {
+        "message": "行为准则",
+        "description": "Navbar item with label Code of Conduct"
+    },
+    "item.label.User": {
+        "message": "用户",
+        "description": "Navbar item with label User"
+    }
+}
