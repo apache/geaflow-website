@@ -1,0 +1,79 @@
+.bannerBox {
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: right;
+  position: relative;
+}
+
+.banner {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 440px;
+}
+
+.databaseTitleSection > div {
+  display: flex;
+  justify-content: center;
+}
+
+.icon {
+  width: 440px;
+  height: 440px;
+  margin-right: 49px;
+}
+
+.titleText {
+  color: #292d3b;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.descriptionText {
+  width: 50vw;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: center;
+}
+
+.buttonContainer {
+  width: fit-content;
+  height: 48px;
+  display: flex;
+  margin-top: 40px;
+  gap: 16px;
+}
+
+.github,
+.started {
+  min-width: 146px;
+  height: 100%;
+  border-color: rgb(109, 117, 125);
+  background-color: rgb(109, 117, 125);
+  color: #fff;
+  line-height: 48px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.started {
+  border-color: rgb(225, 114, 40);
+  background-color: rgb(225, 114, 40);
+}
+
+.started:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 767.99px) {
+  .descriptionText {
+    width: 90vw;
+  }
+
+  .icon {
+    display: none;
+  }
+}

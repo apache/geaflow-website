@@ -1,0 +1,106 @@
+/*
+Hide color mode toggle in small viewports
+ */
+@media (max-width: 996px) {
+  .colorModeToggle {
+    display: none;
+  }
+}
+
+/*
+Restore some Infima style that broke with CSS Cascade Layers
+See https://github.com/facebook/docusaurus/pull/11142
+ */
+:global(.navbar__items--right) > :last-child {
+  padding-right: 0;
+}
+
+.navbarCenter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: max-content;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.versionSelect {
+  overflow: hidden;
+  position: relative;
+  font-size: 14px;
+}
+
+.versionSelect:hover {
+  overflow: visible;
+}
+
+.current {
+  padding: 2px 8px;
+  background-color: #fff;
+  position: relative;
+  z-index: 10;
+}
+
+.current::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 12px;
+  border: 1px solid #ccc;
+  border-color: transparent transparent #ccc #ccc;
+  transform: translateY(-3px) rotateZ(-45deg);
+}
+
+.versions {
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 5px;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.08),
+    0 9px 28px rgba(0, 0, 0, 0.12);
+  z-index: 9;
+}
+
+.selectItem {
+  padding: 2px 12px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+
+.selectItem:hover {
+  background-color: #ebedf0a7;
+}
+
+.selectItemActive {
+  background-color: #e6f4ff !important;
+}
+
+@media (max-width: 1180px) {
+  .navbarCenter {
+    padding-right: calc(1180px - 100vw);
+  }
+}
+
+@media (max-width: 996px) {
+  .versionSelect {
+    margin-right: 180px;
+  }
+  .navbarCenter {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 767.99px) {
+  .versionSelect {
+    margin-right: 50px;
+  }
+}

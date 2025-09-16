@@ -1,0 +1,78 @@
+.repo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.repoCardList {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 36px;
+  max-width: 1300px;
+}
+
+.repoCard {
+  padding: 16px;
+  border: 1px solid #d1d9e0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #59636e;
+  width: 410px;
+}
+
+.repoCardTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.repoCardTitleTag {
+  padding: 1px 6px;
+  font-family: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji';
+  border: 1px solid #d1d9e0;
+  font-size: 12px;
+  border-radius: 15px;
+}
+
+.repoCardDescription {
+  min-height: 20px;
+  margin: 12px 0;
+  font-size: 12px;
+}
+
+.repoCardInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.repoCardInfo > div {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: red;
+}
+
+.herf {
+  cursor: pointer;
+}
+.herf:hover {
+  color: #0969da;
+}
+
+@media (max-width: 836px) {
+  .repoCardList {
+    width: 410px;
+  }
+}
