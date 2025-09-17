@@ -52,7 +52,7 @@ title: "Downloads"
 
 ## <font style="color:rgb(35, 47, 62);">Maven Dependencies</font><font style="color:#DF2A3F;"></font>
 
-<font style="color:rgb(35, 47, 62);">You can add the following dependencies to your </font>`<font style="color:rgb(35, 47, 62);">pom.xml</font>`<font style="color:rgb(35, 47, 62);"> to include Apache GeaFlow in your project.</font>
+<font style="color:rgb(35, 47, 62);">You can add the following dependencies to your </font><font style="color:rgb(35, 47, 62);">pom.xml</font><font style="color:rgb(35, 47, 62);"> to include Apache GeaFlow in your project.</font>
 
 <font style="color:rgb(35, 47, 62);">GeaFlow artifacts are available from sonatype.com</font><font style="color:rgb(102, 102, 102);"> </font>[<font style="color:rgb(47, 164, 231);">Official Repository</font>](https://search.maven.org/search?q=GeaFlow)<font style="color:rgb(102, 102, 102);">.</font>
 

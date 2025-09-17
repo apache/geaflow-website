@@ -1,23 +1,29 @@
 ### Support
-简单的项目方面的介绍，并提供联系方式
+
+A brief introduction to the project and contact information.
 
 ### Team
-团队介绍 可以参考 [https://answer.apache.org/community/team](https://answer.apache.org/community/team) 
 
-对项目有贡献的同学都可以加进来
+Team introduction. You can refer to [https://answer.apache.org/community/team](https://answer.apache.org/community/team).
+
+Anyone who has contributed to the project can be included.
 
 ### Security
-针对安全方面的处理规则以及已经处理的公开的 CVE
+
+Rules for handling security issues and publicly disclosed CVEs.
 
 ### Howto Contribute
-介绍如何贡献
+
+Introduction on how to contribute.
 
 ### Feature Request
-链接到 GitHub issues 页面，方便用户以 GitHub issues 的形式提交（也可以做个页面，说明通过加入邮件列表的形式提交）
+
+Link to the GitHub issues page, making it easy for users to submit requests via GitHub issues (you can also create a page explaining how to submit via the mailing list).
 
 ### Roadmap
-链接到 GitHub 页面的 Roadmap 文件，主要说明项目后续的路线图
+
+Link to the Roadmap file on GitHub, mainly explaining the future plans of the project.
 
 ### Logos
-提供项目的 logo 等资源的下载，方便社区协作使用
 
+Provide downloadable project logos and other resources

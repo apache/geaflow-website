@@ -10,7 +10,7 @@ title: How to Release
 
 ## First-time as a release manager
 
-### <font style="background-color:#FBDE28;">Environmental requirements</font>
+### Environmental requirements
 
 This release process is operated in the Ubuntu OS, and the following tools are required:
 
@@ -170,7 +170,7 @@ release:
 - Release download pages: [https://infra.apache.org/release-download-pages.html](https://infra.apache.org/release-download-pages.html)
 - Publishing maven artifacts: [https://infra.apache.org/publishing-maven-artifacts.html](https://infra.apache.org/publishing-maven-artifacts.html)
 
-## <font style="background-color:#FBDE28;">Start discussion about the release</font>
+## Start discussion about the release
 
 Start a discussion about the next release via sending email to: dev@Geaflow.apache.org:
 
@@ -245,7 +245,7 @@ Visit [https://dist.apache.org/repos/dist/dev/Geaflow/](https://dist.apache.org/
 
 If some files are unexpected, you need to remove by `svn delete` and repeat the above upload process.
 
-## <font style="background-color:#FBDE28;">Voting</font>
+## Voting
 
 ### check version
 
@@ -256,7 +256,7 @@ Geaflow requires votes from the Geaflow Community.
 - maven_artifact_number: the number for Maven staging artifacts, like 1001. Specifically, the maven_artifact_number can  
   be found by searching "Geaflow" on https://repository.apache.org/#stagingRepositories.
 
-### <font style="background-color:#FBDE28;">Build the source code of Geaflow and release it to nexus</font>
+### Build the source code of Geaflow and release it to font>
 
 #### Configure Apache Account Passwords
 
@@ -517,7 +517,7 @@ If the vote failed, click "Drop" to drop the staging Maven artifacts.
 
 Address the raised issues, then bump `rc_version` and file a new vote again.
 
-## <font style="background-color:#FBDE28;">Official Release</font>
+## Official Release
 
 ### Publish artifacts to SVN Release Directory
 
