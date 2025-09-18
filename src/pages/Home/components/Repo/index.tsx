@@ -37,7 +37,7 @@ const Repo = () => {
                     <div className={styles.repoCardTitle}>
                         <img src='https://mdn.alipayobjects.com/huamei_tu4rvn/afts/img/A*IZUlSI-VOkUAAAAAJSAAAAgAep_eAQ/original' alt="logo" />
                         <a href={`https://github.com/TuGraph-family/${item.repo}`} target='_blank'  >{item.repo}</a>
-                        <div className={styles.repoCardTitleTag}>{item.visibility.replace(/[a-z]/, (val: string) => val.toLocaleUpperCase())}</div>
+                        <div className={styles.repoCardTitleTag}>{item.visibility?.replace(/[a-z]/, (val: string) => val.toLocaleUpperCase())}</div>
                     </div>
                     <div className={styles.repoCardDescription}>
                         {item.description}
