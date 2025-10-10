@@ -4,8 +4,8 @@
   <ShortName>GeaFlow</ShortName>
   <Description>Search GeaFlow</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://apache.github.io/geaflow-website/zh-CN/img/favicon.png</Image>
-  <Url type="text/html" method="get" template="https://apache.github.io/geaflow-website/zh-CN/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://apache.github.io/geaflow-website/zh-CN/opensearch.xml" />
-  <moz:SearchForm>https://apache.github.io/geaflow-website/zh-CN/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://apache.github.io/zh-CN/img/favicon.png</Image>
+  <Url type="text/html" method="get" template="https://apache.github.io/zh-CN/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://apache.github.io/zh-CN/opensearch.xml" />
+  <moz:SearchForm>https://apache.github.io/zh-CN/</moz:SearchForm>
 </OpenSearchDescription>
