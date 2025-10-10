@@ -7,7 +7,7 @@ const config: Config = {
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.png',
   url: 'https://apache.github.io/',
-  baseUrl: 'geaflow-website/',
+  baseUrl: '',
   onBrokenLinks: "warn",
   markdown: {
     format: "md",

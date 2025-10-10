@@ -4,7 +4,7 @@ import { getStorage } from "@site/src/util/localStorage";
 export const historyPushLinkAt = (
     path: string
 ) => {
-    const basePath = '/geaflow-website'
+    const basePath = ''
     const { pathname } = window.location
     const lang = pathname.includes('/zh-CN') ? '/zh-CN' : ''
 
