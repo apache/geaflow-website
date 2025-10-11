@@ -8,7 +8,7 @@ import { historyPushLinkAt } from '@site/src/util/link';
 const Banner = () => {
   const history = useHistory()
   let background =
-    'url(https://mdn.alipayobjects.com/huamei_p63okt/afts/img/qm9aTJHOJGIAAAAAAAAAAAAADh8WAQFr/original)';
+    'url(/img/BG.png)';
 
   const bannerDetail = {
     title: 'Apache GeaFlow',
@@ -35,7 +35,6 @@ const Banner = () => {
         </div>
       </FadeInSection>
     ),
-    icon: 'https://mdn.alipayobjects.com/huamei_p63okt/afts/img/9VjfR7exPyQAAAAAAAAAAAAADh8WAQFr/original',
   }
 
   return (
@@ -55,7 +54,7 @@ const Banner = () => {
           </FadeInSection>
           {bannerDetail?.btn}
         </div>
-        <img src='https://mdn.alipayobjects.com/huamei_p63okt/afts/img/9VjfR7exPyQAAAAAAAAAAAAADh8WAQFr/original' alt="" className={styles.icon} />
+        <img src='/img/icon.png' alt="" className={styles.icon} />
       </div>
     </div>
   );

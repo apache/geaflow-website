@@ -80,7 +80,7 @@
   font-weight: 400;
 }
 
-.menu__list {
+.menu > .menu__list {
   padding-top: 16px;
 }
 

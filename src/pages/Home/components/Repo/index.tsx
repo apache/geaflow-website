@@ -1,27 +1,28 @@
 import { SubTitle } from '@site/src/components/SubTitle'
 import styles from './index.module.css'
 import { translate } from '@docusaurus/Translate'
-import { useEffect, useState } from 'react'
-import { LANGUAGE_ICON_COLOR, REPOS } from '@site/src/constants'
-import { getRepoServices } from '@site/src/services/RepoServices'
+import { useState } from 'react'
+import { LANGUAGE_ICON_COLOR, REPOS, REPOS_DATA } from '@site/src/constants'
 
 const Repo = () => {
-    const [repos, setRepos] = useState([])
-    const getRepoAll = async () => {
-        try {
-            const serviceALl = REPOS.map((repo) => {
-                return getRepoServices(repo)
-            })
-            const res = await Promise.all(serviceALl)
-            setRepos(res || [])
-        } catch (error) {
-            console.error(error)
-        }
-    }
+    const [repos, setRepos] = useState(REPOS_DATA)
 
-    useEffect(() => {
-        getRepoAll()
-    }, [])
+    // TODO: The domain name has a security policy and cannot be requested at the moment.
+    // const getRepoAll = async () => {
+    //     try {
+    //         const serviceALl = REPOS.map((repo) => {
+    //             return getRepoServices(repo)
+    //         })
+    //         const res = await Promise.all(serviceALl)
+    //         setRepos(res || [])
+    //     } catch (error) {
+    //         console.error(error)
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     getRepoAll()
+    // }, [])
 
     const onLink = (repo: string, path: string) => {
         window.open(`https://github.com/TuGraph-family/${repo}/${path}`)

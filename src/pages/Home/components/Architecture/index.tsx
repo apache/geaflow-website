@@ -13,7 +13,7 @@ const Architecture = () => {
       <div className={styles.maxContainer}>
         <img
           className={styles.ecosystemImage}
-          src={'https://mdn.alipayobjects.com/huamei_qcdryc/afts/img/A*2TuZSYCq8egAAAAAAAAAAAAADgOBAQ/original'}
+          src={'/img/structure.png'}
           alt="ecosystem"
         />
       </div>
