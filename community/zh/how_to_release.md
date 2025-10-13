@@ -2,7 +2,7 @@
 title: How to Release
 ---
 
-<font style="color:rgb(0, 0, 0);">This document outlines the process for a release manager to publish a new version of Apache Geaflow.</font>
+<font style="color:rgb(0, 0, 0);">This document outlines the process for a release manager to publish a new version of Apache Geaflow (Incubating).</font>
 
 ## Introduction
 

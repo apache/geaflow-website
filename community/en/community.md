@@ -12,7 +12,7 @@ Anyone who has contributed to the project can be included.
 
 Rules for handling security issues and publicly disclosed CVEs.
 
-### Howto Contribute
+### How to Contribute
 
 Introduction on how to contribute.
 

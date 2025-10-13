@@ -9,7 +9,7 @@
 ### Security
 针对安全方面的处理规则以及已经处理的公开的 CVE
 
-### Howto Contribute
+### How to Contribute
 介绍如何贡献
 
 ### Feature Request

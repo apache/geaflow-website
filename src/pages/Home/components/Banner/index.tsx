@@ -11,7 +11,7 @@ const Banner = () => {
     'url(/img/BG.png)';
 
   const bannerDetail = {
-    title: 'Apache GeaFlow',
+    title: 'Apache GeaFlow (Incubating)',
     desc: translate({ message: 'product_analytics.description' }),
     btn: (
       <FadeInSection transition={{ duration: 1, delay: 0.3 }}>
