@@ -42,7 +42,7 @@ title: "Downloads"
 
 > docker pull <font style="color:rgb(102, 102, 102);">geaflow</font>/geaflow-console-arm:0.6
 
-## <font style="color:rgb(35, 47, 62);">Apache </font><font style="color:rgba(0, 0, 0, 0.88);">GeaFlow</font><font style="color:rgb(35, 47, 62);"> Kubernetes Operator</font>
+## <font style="color:rgba(0, 0, 0, 0.88);">GeaFlow</font><font style="color:rgb(35, 47, 62);"> Kubernetes Operator</font>
 
 ### <font style="color:rgb(0, 0, 0);">geaflow-kubernetes-operator</font>
 

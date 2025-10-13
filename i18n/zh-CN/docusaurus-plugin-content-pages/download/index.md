@@ -45,7 +45,7 @@ title: 下载
 
 > <font style="color:rgb(102, 102, 102);">获取 GeaFlow 控制台镜像：geaflow/geaflow-console-arm:0.6</font>
 
-## <font style="color:rgb(35, 47, 62);">Apache </font><font style="color:rgba(0, 0, 0, 0.88);">GeaFlow</font><font style="color:rgb(35, 47, 62);"> GeaFlow K8S 控制器</font>
+## </font><font style="color:rgba(0, 0, 0, 0.88);">GeaFlow</font><font style="color:rgb(35, 47, 62);"> GeaFlow K8S 控制器</font>
 
 ### <font style="color:rgb(0, 0, 0);">geaflow-kubernetes-operator</font>
 
