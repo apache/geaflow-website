@@ -21,7 +21,7 @@ publish:
   whoami: asf-site
 
 github:
-  description: "Apache GeaFlow: A Streaming Graph Computing Engine."
+  description: "Apache GeaFlow (Incubating): A Streaming Graph Computing Engine."
   homepage: https://geaflow.apache.org/
   features:
     issues: true

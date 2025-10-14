@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkgeaflow_website=self.webpackChunkgeaflow_website||[]).push([[7619],{57566:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/zh-CN/blog/page/2","page":2,"postsPerPage":10,"totalPages":4,"totalCount":34,"previousPage":"/zh-CN/blog","nextPage":"/zh-CN/blog/page/3","blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
