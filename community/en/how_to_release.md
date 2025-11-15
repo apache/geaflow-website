@@ -144,9 +144,8 @@ The svn repository of the release branch is: https://dist.apache.org/repos/dist/
 Please add the public key to KEYS in the release branch:
 
 ```bash
-svn co https://dist.apache.org/repos/dist/release/Geaflow Geaflow-dist
-# As this step will copy all the versions, it will take some time. If the network is broken, please use svn cleanup to delete the lock before re-execute it.
-cd Geaflow-dist
+svn co --depth=files https://dist.apache.org/repos/dist/release/geaflow geaflow-dist
+cd geaflow-dist
 (gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS # Append your key to the KEYS file
 svn add .   # It is not needed if the KEYS document exists before.
 svn ci -m "add gpg key for YOUR_NAME" # Later on, if you are asked to enter a username and password, just use your apache username and password.
