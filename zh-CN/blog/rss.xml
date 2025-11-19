@@ -10,54 +10,6 @@
         <language>zh-CN</language>
         <item>
             <title><![CDATA[Apache GeaFlow（孵化中）V0.7.0 发布说明]]></title>
-            <link>https://apache.github.io/zh-CN/blog/37</link>
-            <guid>https://apache.github.io/zh-CN/blog/37</guid>
-            <pubDate>Tue, 18 Nov 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[🔧 核心引擎与运行时增强]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-核心引擎与运行时增强">🔧 核心引擎与运行时增强<a href="https://apache.github.io/zh-CN/blog/37#-%E6%A0%B8%E5%BF%83%E5%BC%95%E6%93%8E%E4%B8%8E%E8%BF%90%E8%A1%8C%E6%97%B6%E5%A2%9E%E5%BC%BA" class="hash-link" aria-label="🔧 核心引擎与运行时增强的直接链接" title="🔧 核心引擎与运行时增强的直接链接">​</a></h2>
-<hr>
-<ul>
-<li>修复了多个关键的运行时问题，包括检查点异常、任务回调错误和 Shuffle 并发问题。</li>
-<li>优化了本地部署场景下的 BRPC 端点冲突问题。</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-存储与连接器扩展">📦 存储与连接器扩展<a href="https://apache.github.io/zh-CN/blog/37#-%E5%AD%98%E5%82%A8%E4%B8%8E%E8%BF%9E%E6%8E%A5%E5%99%A8%E6%89%A9%E5%B1%95" class="hash-link" aria-label="📦 存储与连接器扩展的直接链接" title="📦 存储与连接器扩展的直接链接">​</a></h2>
-<hr>
-<ul>
-<li>新增 Paimon 图存储连接器，支持动态图 API 和异步写入模式。</li>
-<li>引入 Streaming Hive Source，增强了数据摄入能力。</li>
-<li>改进了 Paimon RWHandle 的资源管理逻辑。</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-sql--gql--dsl-功能增强">💡 SQL / GQL / DSL 功能增强<a href="https://apache.github.io/zh-CN/blog/37#-sql--gql--dsl-%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA" class="hash-link" aria-label="💡 SQL / GQL / DSL 功能增强的直接链接" title="💡 SQL / GQL / DSL 功能增强的直接链接">​</a></h2>
-<hr>
-<ul>
-<li>增加了对多个新 UDF 函数的支持，包括 json_get_object、percentile 和 stddev_samp。</li>
-<li>通过新增边方向 UDF 增强了 GQL 查询能力。</li>
-<li>优化了边查询性能和 Filter 实例化逻辑。</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-构建与基础设施升级">🏗️ 构建与基础设施升级<a href="https://apache.github.io/zh-CN/blog/37#%EF%B8%8F-%E6%9E%84%E5%BB%BA%E4%B8%8E%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E5%8D%87%E7%BA%A7" class="hash-link" aria-label="🏗️ 构建与基础设施升级的直接链接" title="🏗️ 构建与基础设施升级的直接链接">​</a></h2>
-<hr>
-<ul>
-<li>正式将 Maven Group ID 更改为 org.apache.geaflow，以符合 Apache 标准。</li>
-<li>添加了 JDK11 的 CI 构建支持。</li>
-<li>修复了 aarch64 架构上的编译问题。</li>
-<li>更新了 .asf.yaml 配置文件以满足 ASF 要求。</li>
-<li>更新了 LICENSE 和 NOTICE 文件。</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-文档与社区治理">📚 文档与社区治理<a href="https://apache.github.io/zh-CN/blog/37#-%E6%96%87%E6%A1%A3%E4%B8%8E%E7%A4%BE%E5%8C%BA%E6%B2%BB%E7%90%86" class="hash-link" aria-label="📚 文档与社区治理的直接链接" title="📚 文档与社区治理的直接链接">​</a></h2>
-<hr>
-<ul>
-<li>更新了开发者贡献指南和项目治理文档。</li>
-<li>改进了社区联系方式，现已统一为 <a href="mailto:dev@geaflow.apache.org" target="_blank" rel="noopener noreferrer">dev@geaflow.apache.org</a>。</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-致谢">👥 致谢<a href="https://apache.github.io/zh-CN/blog/37#-%E8%87%B4%E8%B0%A2" class="hash-link" aria-label="👥 致谢的直接链接" title="👥 致谢的直接链接">​</a></h2>
-<hr>
-<p>感谢所有为此版本做出贡献的社区成员：</p>
-<p>mingcheng, justinmclean，以及另外 16 位贡献者</p>
-<p>@cbqiao, @fanzhidongyzby, @dy247846795, @huhao0926, @Leomrlin, @Loognqiang, @xincai98, @652053395, @justinmclean, @yaozhongq, @DukeWangYu, @mingcheng, @vesense, @xiaoya-yaya, @chzhoo, @qingwen220, @cfsfine, @kitalkuyo-gita</p>
-<p>完整变更日志：<a href="https://github.com/apache/geaflow/commits/v0.7.0" target="_blank" rel="noopener noreferrer">https://github.com/apache/geaflow/commits/v0.7.0</a></p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Apache GeaFlow（孵化中）V0.7.0 发布说明]]></title>
             <link>https://apache.github.io/zh-CN/blog/apache-geaflow-0_7_0-incubating</link>
             <guid>https://apache.github.io/zh-CN/blog/apache-geaflow-0_7_0-incubating</guid>
             <pubDate>Tue, 18 Nov 2025 00:00:00 GMT</pubDate>
