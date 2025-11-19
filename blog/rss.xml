@@ -57,6 +57,54 @@
 <p>Full ChangeLog: <a href="https://github.com/apache/geaflow/commits/v0.7.0" target="_blank" rel="noopener noreferrer">https://github.com/apache/geaflow/commits/v0.7.0</a></p>]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[Apache GeaFlow (Incubating) V0.7.0 Release Note]]></title>
+            <link>https://apache.github.io/blog/apache-geaflow-0_7_0-incubating</link>
+            <guid>https://apache.github.io/blog/apache-geaflow-0_7_0-incubating</guid>
+            <pubDate>Tue, 18 Nov 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[🔧 Core Engine & Runtime Enhancements]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-core-engine--runtime-enhancements">🔧 Core Engine &amp; Runtime Enhancements<a href="https://apache.github.io/blog/apache-geaflow-0_7_0-incubating#-core-engine--runtime-enhancements" class="hash-link" aria-label="Direct link to 🔧 Core Engine &amp; Runtime Enhancements" title="Direct link to 🔧 Core Engine &amp; Runtime Enhancements">​</a></h2>
+<hr>
+<ul>
+<li>Fixed multiple critical runtime issues including checkpoint anomalies, task callback errors, and shuffle concurrency problems.</li>
+<li>Optimized BRPC endpoint conflicts in local deployment scenarios.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-storage--connector-extensions">📦 Storage &amp; Connector Extensions<a href="https://apache.github.io/blog/apache-geaflow-0_7_0-incubating#-storage--connector-extensions" class="hash-link" aria-label="Direct link to 📦 Storage &amp; Connector Extensions" title="Direct link to 📦 Storage &amp; Connector Extensions">​</a></h2>
+<hr>
+<ul>
+<li>Added new Paimon graph storage connector with support for dynamic graph APIs and asynchronous write modes.</li>
+<li>Introduced Streaming Hive Source to enhance data ingestion capabilities.</li>
+<li>Improved Paimon RWHandle resource management logic.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-sql--gql--dsl-functionality-enhancements">💡 SQL / GQL / DSL Functionality Enhancements<a href="https://apache.github.io/blog/apache-geaflow-0_7_0-incubating#-sql--gql--dsl-functionality-enhancements" class="hash-link" aria-label="Direct link to 💡 SQL / GQL / DSL Functionality Enhancements" title="Direct link to 💡 SQL / GQL / DSL Functionality Enhancements">​</a></h2>
+<hr>
+<ul>
+<li>Added support for several new UDF functions including json_get_object, percentile, and stddev_samp.</li>
+<li>Enhanced GQL query capabilities with new edge direction UDF.</li>
+<li>Optimized Edge query performance and Filter instantiation logic.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-build--infrastructure-upgrades">🏗️ Build &amp; Infrastructure Upgrades<a href="https://apache.github.io/blog/apache-geaflow-0_7_0-incubating#%EF%B8%8F-build--infrastructure-upgrades" class="hash-link" aria-label="Direct link to 🏗️ Build &amp; Infrastructure Upgrades" title="Direct link to 🏗️ Build &amp; Infrastructure Upgrades">​</a></h2>
+<hr>
+<ul>
+<li>Officially renamed Maven Group ID to org.apache.geaflow to align with Apache standards.</li>
+<li>Added JDK11 CI build support.</li>
+<li>Fixed compilation issues on aarch64 architecture.</li>
+<li>Updated .asf.yaml configuration file to meet ASF requirements.</li>
+<li>Updated LICENSE and NOTICE Files.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-documentation--community-governance">📚 Documentation &amp; Community Governance<a href="https://apache.github.io/blog/apache-geaflow-0_7_0-incubating#-documentation--community-governance" class="hash-link" aria-label="Direct link to 📚 Documentation &amp; Community Governance" title="Direct link to 📚 Documentation &amp; Community Governance">​</a></h2>
+<hr>
+<ul>
+<li>Updated developer contribution guidelines and project governance documentation.</li>
+<li>Improved community contact information, now unified under <a href="mailto:dev@geaflow.apache.org" target="_blank" rel="noopener noreferrer">dev@geaflow.apache.org</a>.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-acknowledgements">👥 Acknowledgements<a href="https://apache.github.io/blog/apache-geaflow-0_7_0-incubating#-acknowledgements" class="hash-link" aria-label="Direct link to 👥 Acknowledgements" title="Direct link to 👥 Acknowledgements">​</a></h2>
+<hr>
+<p>Thank you to all community members who contributed to this release:</p>
+<p>mingcheng, justinmclean, and 16 other contributors</p>
+<p>@cbqiao, @fanzhidongyzby, @dy247846795, @huhao0926, @Leomrlin, @Loognqiang, @xincai98, @652053395, @justinmclean, @yaozhongq, @DukeWangYu, @mingcheng, @vesense, @xiaoya-yaya, @chzhoo, @qingwen220, @cfsfine, @kitalkuyo-gita</p>
+<p>Full ChangeLog: <a href="https://github.com/apache/geaflow/commits/v0.7.0" target="_blank" rel="noopener noreferrer">https://github.com/apache/geaflow/commits/v0.7.0</a></p>]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[Exploring Apache GeaFlow (Incubating)'s Temporal Capabilities — Breathing New Life into Time-Series Data!]]></title>
             <link>https://apache.github.io/blog/29</link>
             <guid>https://apache.github.io/blog/29</guid>
