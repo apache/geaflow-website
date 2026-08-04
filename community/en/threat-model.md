@@ -31,7 +31,7 @@ citing this document.
 - *(inferred)*: reasoned from code structure or the absence of a feature. Not yet
   confirmed, and carries a matching question in §14.
 
-**Draft confidence: 20 documented / 0 maintainer / 27 inferred.** Slightly under half
+**Draft confidence: 20 documented / 0 maintainer / 30 inferred.** Slightly under half
 of this document is confirmed fact; the rest is hypothesis awaiting a PPMC answer.
 That ratio is the point of publishing a draft, but it means no section here should
 yet be cited as settled policy.
@@ -316,15 +316,15 @@ honest shape of the model as it stands.
   engine's privileges. There is no restriction on what it may do. *(inferred, §14 Q2)*
 - **No isolation between a query and the engine's environment.** Because query
   properties override server configuration (§6), the query author selects connector
-  endpoints and credentials.
+  endpoints and credentials. *(inferred, §14 Q2)*
 - **No stated resource bound on query execution.** No threshold is documented for
   memory, CPU, result size or traversal depth, so "this query exhausts the cluster"
   cannot currently be triaged either way. *(inferred, §14 Q6)*
 - **No confidentiality for credentials at rest.** Connector, datastore and object-store
-  credentials are carried as ordinary configuration values.
+  credentials are carried as ordinary configuration values. *(inferred, §14 Q13)*
 - **No engine-level tenancy.** Tenancy is a console database concept; it does not
   follow the job into the engine. *(inferred, §14 Q8)*
-- **No constant-time or side-channel-resistant operations.**
+- **No constant-time or side-channel-resistant operations.** *(inferred, §14 Q9)*
 
 ### False friends
 
