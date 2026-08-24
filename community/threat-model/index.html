@@ -1,0 +1,1182 @@
+<!doctype html>
+<html lang="en-US" dir="ltr" class="docs-wrapper plugin-docs plugin-id-en-community docs-version-current docs-doc-page docs-doc-id-threat-model" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">Threat Model | GeaFlow</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://apache.github.io/community/threat-model"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="zh_CN"><meta data-rh="true" name="docusaurus_locale" content="en-US"><meta data-rh="true" name="docsearch:language" content="en-US"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-en-community-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-en-community-current"><meta data-rh="true" property="og:title" content="Threat Model | GeaFlow"><meta data-rh="true" name="description" content="§1 Header"><meta data-rh="true" property="og:description" content="§1 Header"><link data-rh="true" rel="icon" href="/img/favicon.png"><link data-rh="true" rel="canonical" href="https://apache.github.io/community/threat-model"><link data-rh="true" rel="alternate" href="https://apache.github.io/community/threat-model" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://apache.github.io/zh-CN/community/threat-model" hreflang="zh-CN"><link data-rh="true" rel="alternate" href="https://apache.github.io/community/threat-model" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://HO4M21RAQI-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Threat Model","item":"https://apache.github.io/community/threat-model"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="GeaFlow RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="GeaFlow Atom Feed">
+
+
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="GeaFlow" href="/opensearch.xml">
+
+
+
+<meta name="algolia-site-verification" content="4AB782AC2021573E">
+<meta property="og:image" content="https://mdn.alipayobjects.com/huamei_tu4rvn/afts/img/A*PkdvSLd2A6kAAAAAQMAAAAgAep_eAQ/original"><link rel="stylesheet" href="/assets/css/styles.0d7412ce.css">
+<script src="/assets/js/runtime~main.8ee211de.js" defer="defer"></script>
+<script src="/assets/js/main.7b505bc8.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.png"><link rel="preload" as="image" href="/img/asf_logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.png" alt="GeaFlow Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.png" alt="GeaFlow Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate"></b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link header-locale-dropdown"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_DSK9"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/community/threat-model" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en-US">English</a></li><li><a href="/zh-CN/community/zh/threat-model" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="zh-CN">简体中文</a></li></ul></div><a href="https://github.com/apache/geaflow" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="navbarSearchContainer_dCNk"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search (Command+K)"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"></span></button></div></div><div class="navbarCenter_ZzI1"> <a class="navbar__item navbar__link" id="docs" href="/docs/guide">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" id="community" href="/community/community">Community</a><a class="navbar__item navbar__link" href="/download">Download</a><a class="navbar__item navbar__link" href="/blog">Blog</a><div class="navbar__item dropdown dropdown--hoverable"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">ASF</a><ul class="dropdown__menu"><li><a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="dropdown__link">Foundation</a></li><li><a href="https://www.apache.org/licenses/" target="_blank" rel="noopener noreferrer" class="dropdown__link">License</a></li><li><a href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">Events</a></li><li><a href="https://privacy.apache.org/policies/privacy-policy-public.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">Privacy</a></li><li><a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer" class="dropdown__link">Security</a></li><li><a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">Sponsorship</a></li><li><a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">Thanks</a></li><li><a href="https://www.apache.org/foundation/policies/conduct.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">Code of Conduct</a></li></ul></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/community/community">community</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/community/how_to_contribute">How to Contribute</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/community/how_to_release">How to Release</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/community/security">Security</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/community/threat-model">Threat Model</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Threat Model</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Apache GeaFlow (Incubating) Threat Model</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-header">§1 Header<a href="#1-header" class="hash-link" aria-label="Direct link to §1 Header" title="Direct link to §1 Header">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>Project</strong></td><td>Apache GeaFlow (Incubating)</td></tr><tr><td><strong>Modelled against</strong></td><td><code>apache/geaflow</code> commit <code>3fafe740</code></td></tr><tr><td><strong>Date</strong></td><td>2026-08-21</td></tr><tr><td><strong>Status</strong></td><td><strong>DRAFT. Not ratified by the PPMC.</strong> Reviewed by the ASF Security Team; every code citation below has been checked against the tree named above. No PPMC vote has been taken, so nothing here is yet project policy.</td></tr></tbody></table>
+<p><strong>Version binding.</strong> This model is versioned alongside the project. A report filed
+against GeaFlow version <em>N</em> is triaged against the model as it stood at <em>N</em>, not
+against HEAD.</p>
+<p>The first draft was modelled against <code>958b8039</code>. The binding has since moved to
+<code>3fafe740</code>, which differs only in <code>SECURITY.md</code>: apache/geaflow#828 merged, routing
+reports to the ASF Security Team. The appendix reflects the post-#828 text. No Java
+line number cited here moved between the two commits.</p>
+<p><strong>Reporting cross-reference.</strong> Findings that violate a property claimed in §8 should
+be reported privately per the project&#x27;s
+<a href="https://github.com/apache/geaflow/blob/master/SECURITY.md" target="_blank" rel="noopener noreferrer"><code>SECURITY.md</code></a>. Findings
+that fall under §3 (out of scope) or §9 (properties not provided) will be closed
+citing this document.</p>
+<p><strong>Provenance legend.</strong> Every non-trivial claim carries one tag:</p>
+<ul>
+<li><em>(documented)</em>: stated in the project&#x27;s own documentation, or declared in code as
+a shipped default or a user-visible description string. Source cited.</li>
+<li><em>(review)</em>: established during the ASF Security Team review of this draft. Sourced
+and code-verified, but a reviewer&#x27;s reading rather than a project decision.</li>
+<li><em>(maintainer)</em>: stated by a GeaFlow maintainer in response to this process.</li>
+<li><em>(inferred)</em>: reasoned from code structure or the absence of a feature. Not yet
+confirmed, and carries a matching question in §14.</li>
+</ul>
+<p><strong>Draft confidence.</strong> See the count at the end of §14. The bulk of the document is now
+either documented or review-established, but <em>(review)</em> is not ratification: the
+posture questions in §14 were answered by a reviewer, and the PPMC has not voted on
+them. Until it does, this document describes what the code does, not what the project
+promises.</p>
+<p><strong>What GeaFlow is.</strong> GeaFlow is a distributed streaming graph computing engine. Users
+define graphs and write queries in a SQL-like graph query language (GQL); the engine
+compiles them into a dataflow plan and executes it across a cluster of JVM processes
+that exchange data over a Netty shuffle channel and control messages over RPC. A
+separate web application, GeaFlow Console, provides accounts, tenants, metadata and
+job submission on top of the engine.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2-scope-and-intended-use">§2 Scope and intended use<a href="#2-scope-and-intended-use" class="hash-link" aria-label="Direct link to §2 Scope and intended use" title="Direct link to §2 Scope and intended use">​</a></h2>
+<p><strong>Primary intended use</strong> <em>(documented,</em> <code>docs/docs-en/source/7.deploy/1.install_guide.md</code><em>)</em>:
+a multi-node graph analytics cluster, deployed on Kubernetes, fed by a graph modelled
+and submitted through GeaFlow Console. Two smaller shapes are documented as quick
+starts <em>(documented,</em> <code>docs/docs-en/source/3.quick_start/</code><em>)</em>: a single-JVM local job,
+and an all-in-one Docker image bundling the console with MySQL, Redis and InfluxDB.</p>
+<p><strong>Submitting a query is executing code.</strong> This is the single most important sentence in
+the document, and it is repeated in §9 and §10 because readers arrive expecting the
+opposite. GQL is closer to a job submission than to a database query. Three independent
+mechanisms make it so, any one of which would be sufficient <em>(review)</em>:</p>
+<ol>
+<li><code>CREATE FUNCTION name AS &#x27;class&#x27;</code> loads the named class through the thread context
+class loader, with no allowlist, package restriction or type check before the load
+(<code>FunctionUtil.java:59</code>, <code>GeaFlowUserDefinedScalarFunction.java:58</code>). The optional
+<code>USING resource</code> clause means the class need not already be on the classpath
+<em>(documented,</em> <code>docs/docs-en/source/5.application-development/2.dsl/2.syntax/2.ddl.md:186</code><em>)</em>.</li>
+<li>Console UDF upload places a JAR of up to 500 MB on the engine classpath.</li>
+<li>Query-supplied <code>WITH</code> properties are merged over the server&#x27;s global configuration,
+so the query selects the connector, its endpoint and its credentials (§6).</li>
+</ol>
+<p><strong>Caller roles.</strong> GeaFlow is a cluster service, not an in-process library, so there is
+no single &quot;caller&quot;. Three roles are modelled separately and appear separately in §6
+and §7:</p>
+<ul>
+<li><strong>Client</strong>: submits GQL and reads results, via the console or an analytics endpoint.
+Holds, in effect, the right to run code in the engine&#x27;s security context.</li>
+<li><strong>Operator / deployer</strong>: chooses the deployment topology, network exposure and
+configuration. Owns everything in §10.</li>
+<li><strong>Peer</strong>: another GeaFlow process in the same job (master, driver, container,
+supervisor), reached over RPC and the shuffle channel.</li>
+</ul>
+<p><strong>Component families.</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Family</th><th>Representative entry point</th><th>Touches outside the process</th><th>In model?</th></tr></thead><tbody><tr><td>DSL / query pipeline</td><td><code>GeaFlowDSLParser</code>, <code>QueryClient</code></td><td>via connectors only</td><td><strong>Yes</strong></td></tr><tr><td>Analytics service</td><td><code>POST /rest/analytics/query/execute</code>; gRPC <code>AnalyticsService.executeQuery</code></td><td>network listener</td><td><strong>Yes</strong></td></tr><tr><td>Cluster control plane</td><td>brpc master / driver / container / supervisor endpoints</td><td>network listener</td><td><strong>Yes</strong></td></tr><tr><td>Shuffle data plane</td><td>Netty, <code>MessageIterator</code></td><td>network listener</td><td><strong>Yes</strong></td></tr><tr><td>State and checkpoint stores</td><td><code>DefaultKVSerializer</code> over RocksDB, Paimon, Redis, JDBC</td><td>filesystem, network, DFS</td><td><strong>Yes</strong></td></tr><tr><td>Connectors</td><td><code>ConnectorFactory</code>, ~16 modules</td><td>network, filesystem, object stores</td><td><strong>Yes</strong></td></tr><tr><td>Agent / observability</td><td><code>AgentWebServer</code>, master dashboard on <code>geaflow.master.http.port</code></td><td>network listener, spawns processes</td><td><strong>Yes</strong></td></tr><tr><td>GeaFlow Console</td><td>Spring Boot app, <code>/api/**</code></td><td>network, database, spawns JVMs, k8s API</td><td><strong>Yes</strong></td></tr><tr><td>Kubernetes operator</td><td><code>GeaflowJob</code> CRD</td><td>k8s API</td><td>No, see §3</td></tr><tr><td>MCP server (<code>geaflow-mcp</code>)</td><td>MCP tool interface</td><td>filesystem</td><td>No, see §3</td></tr><tr><td>AI plugin (<code>geaflow-ai</code>)</td><td>Python plugin</td><td>LLM endpoints</td><td>No, see §3</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="3-out-of-scope-explicit-non-goals">§3 Out of scope (explicit non-goals)<a href="#3-out-of-scope-explicit-non-goals" class="hash-link" aria-label="Direct link to §3 Out of scope (explicit non-goals)" title="Direct link to §3 Out of scope (explicit non-goals)">​</a></h2>
+<p><strong>Code that ships but is not covered by this model.</strong> State the policy explicitly so
+integrators do not extend the core&#x27;s guarantees to it by association:</p>
+<ul>
+<li><code>geaflow/geaflow-examples/</code>, <code>bin/</code>, <code>data/</code>: sample jobs, launcher scripts and
+sample payloads. Illustrative, not supported. <em>(review)</em></li>
+<li><code>tools/</code>: checkstyle configuration and an IDE formatter profile, wired into the build
+at <code>pom.xml:235</code> and excluded from the RAT license check at <code>pom.xml:328</code>. It ships in
+the source release but has no runtime surface. <em>(documented)</em></li>
+<li><code>geaflow-kubernetes-operator/</code>: a separately deployed controller whose default
+install is considerably more privileged than the engine it manages, and which
+therefore needs its own model rather than inheriting this one. Its Helm chart grants
+<code>verbs: [&quot;*&quot;]</code> across six API groups, including core <code>secrets</code>
+(<code>helm/geaflow-kubernetes-operator/templates/rbac.yaml:25-81</code>). The cluster-scoped
+binding is the default path, not an opt-in: it is selected when <code>.Values.watchNamespaces</code>
+is unset (<code>rbac.yaml:117</code>), and <code>values.yaml</code> never defines that key. A default
+<code>helm install</code> therefore yields cluster-wide wildcard access to Secrets.
+<em>(documented; the scoping conclusion is (review))</em></li>
+<li><code>geaflow-mcp/</code>, <code>geaflow-ai/</code>: newer, separately authored surfaces. <strong>This exclusion
+expires.</strong> It holds as of the commit this document is bound to and is to be revisited
+at each release rather than standing indefinitely; see the matching trigger in §12.
+<em>(review)</em></li>
+<li><strong>Console deployments running <code>geaflow.deploy.mode=local</code></strong>: local mode starts
+embedded datastores with bundled credentials and is meant for evaluation. The
+carve-out attaches to the mode rather than to the all-in-one Docker images, because
+the mode is reachable outside those images and the images are not the thing that makes
+it unsafe. <em>(review)</em></li>
+</ul>
+<p><strong>Threats not defended against at this layer.</strong> Each is stated with its reason, and
+each is a disposition in §13:</p>
+<ul>
+<li>An adversary who already controls a GeaFlow JVM, its configuration file, or its
+host. Such an adversary has already won; nothing below that line is a boundary.</li>
+<li>An adversary with the operator role. Configuration is trusted input by construction.</li>
+<li>Correctness or availability of the external systems a connector reaches (Kafka,
+JDBC, HDFS, object stores). GeaFlow is a client to them.</li>
+<li>Side-channel adversaries (timing, cache, power). No constant-time or
+side-channel-resistant behaviour is attempted anywhere. GeaFlow implements no
+cryptography of its own. The corollary worth stating, so that reports of it are
+answered before they are filed: token and password comparison is ordinary equality,
+and is not intended to be otherwise. <em>(review)</em></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="4-trust-boundaries-and-data-flow">§4 Trust boundaries and data flow<a href="#4-trust-boundaries-and-data-flow" class="hash-link" aria-label="Direct link to §4 Trust boundaries and data flow" title="Direct link to §4 Trust boundaries and data flow">​</a></h2>
+<p>The load-bearing claim of this document:</p>
+<blockquote>
+<p><strong>The console API is the authenticated trust boundary. Inside a GeaFlow cluster,
+there is no boundary: RPC, shuffle and state channels treat whatever arrives as
+already authenticated, and a submitted query is trusted to the same degree as
+engine code.</strong> <em>(review; §14 Q1 and Q2, answered but not PPMC-ratified)</em></p>
+</blockquote>
+<p>Data crosses trust levels at three points:</p>
+<ol>
+<li><strong>Client to console.</strong> The console authenticates the request and resolves it to a
+user, tenant and role <em>(documented,</em> <code>docs/docs-en/source/4.concepts/5.console_principle.md</code><em>)</em>.
+This is the only place in the system where an identity is established. See P1 in §8
+for what that authentication does and does not cover.</li>
+<li><strong>Console to engine.</strong> The console launches a job (as a local JVM, or as
+Kubernetes pods) carrying the job configuration and a task token. From here on the
+query is engine-privileged. <em>(review)</em></li>
+<li><strong>Peer to peer, and job to store.</strong> These are two different things and the model
+keeps them apart, because a single &quot;we trust our peers&quot; would quietly become &quot;we
+trust anything ever written to a checkpoint path&quot;.
+<ul>
+<li><em>Job-scoped channels.</em> Shuffle frames and RPC payloads are deserialized directly
+into objects, with no authentication of the sending peer and no restriction on the
+types the stream may name <em>(documented:</em> <code>KryoSerializer</code> sets
+<code>setRegistrationRequired(false)</code><em>)</em>. Both endpoints exist only for the lifetime of
+one job, and both are launched by the same operator from the same image, so the
+set of possible writers is the set of peers. <em>(review, §14 Q3)</em></li>
+<li><em>Durable stores.</em> A shared RocksDB, Paimon, Redis or DFS path outlives the job that
+wrote it and can be written by something that was never a peer. Bytes read back
+from a store are deserialized on the same unrestricted terms, but the &quot;same
+operator, same image&quot; argument does not reach them. Their integrity is an operator
+obligation (§10 item 10), not a property of the peer model. <em>(review, §14 Q3)</em></li>
+</ul>
+</li>
+</ol>
+<p><strong>Reachability preconditions.</strong> The test a triager applies to a tool or AI finding
+before anything else:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Family</th><th>A finding matters only if reachable from</th></tr></thead><tbody><tr><td>DSL / query pipeline</td><td>GQL text a client is entitled to submit</td></tr><tr><td>Analytics service</td><td>a request to the analytics port</td></tr><tr><td>Cluster control plane, shuffle</td><td>a message from a network position inside the cluster</td></tr><tr><td>State stores</td><td>bytes previously written by this job, or by whoever can write the store</td></tr><tr><td>Connectors</td><td>data returned by the external system, or properties set in the query</td></tr><tr><td>Agent / observability</td><td>a request to the agent or dashboard port</td></tr><tr><td>Console</td><td>an HTTP request, authenticated or not, to the console port</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="5-assumptions-about-the-environment">§5 Assumptions about the environment<a href="#5-assumptions-about-the-environment" class="hash-link" aria-label="Direct link to §5 Assumptions about the environment" title="Direct link to §5 Assumptions about the environment">​</a></h2>
+<ul>
+<li>A JVM (Java 8+) on Linux, with the project&#x27;s declared dependency set. <em>(documented,</em>
+<code>pom.xml</code><em>)</em></li>
+<li>The cluster network is reachable between all job processes, and is not shared with
+untrusted parties. <em>(review, §14 Q1)</em></li>
+<li>A writable work directory and log directory (<code>geaflow.work.path</code> default <code>/tmp</code>,
+<code>geaflow.log.dir</code>). <em>(documented,</em> <code>ExecutionConfigKeys.java</code><em>)</em></li>
+<li>Where configured, an external MySQL, Redis, InfluxDB and DFS are reachable and are
+themselves access-controlled by the operator. <em>(review, §14 Q10)</em></li>
+</ul>
+<p><strong>What GeaFlow does to its host.</strong> These are negative claims of the sort that are
+almost never written down. It is stated as what GeaFlow <em>does</em>, because the list is not
+empty:</p>
+<ul>
+<li><strong>Spawns processes.</strong> The console forks job JVMs in container runtime mode; the
+agent runs an external profiler and <code>jstack</code>; <code>geaflow-infer</code> starts a Python
+interpreter and creates a virtualenv. <em>(documented, by the existence of
+<code>ContainerRuntime</code>, <code>ShellUtil</code>, <code>geaflow-infer</code>)</em></li>
+<li><strong>Opens listening sockets</strong> on multiple ports, most binding all interfaces. See §5a.
+<em>(review, §14 Q4)</em></li>
+<li><strong>Reads and writes the filesystem</strong> under the work, log and connector paths.</li>
+<li>It does <strong>not</strong> install signal handlers, mutate global locale or FPU state, or read
+the environment beyond documented deployment variables. <em>(inferred, §14 Q17)</em></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="5a-build-time-and-configuration-variants">§5a Build-time and configuration variants<a href="#5a-build-time-and-configuration-variants" class="hash-link" aria-label="Direct link to §5a Build-time and configuration variants" title="Direct link to §5a Build-time and configuration variants">​</a></h2>
+<p>GeaFlow is not one binary but a family of deployment shapes. The knobs below change
+which security properties hold. Defaults are as declared in code; where the effective
+default differs by deployment target, that is stated, because the ConfigKey default is
+not always what runs.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Key</th><th>Default</th><th>Effect</th><th>Stance</th></tr></thead><tbody><tr><td><code>geaflow.http.rest.service.enable</code></td><td><code>true</code> <em>(documented,</em> <code>ExecutionConfigKeys.java:323</code><em>)</em></td><td>Gates the master dashboard on <code>geaflow.master.http.port</code> (default <code>8090</code>) and the master&#x27;s agent web server, both started at <code>AbstractMaster.java:99-104</code>. The container-side metric server is gated by the same key, checked inside its own constructor at <code>MetricServer.java:44</code> rather than at the call site (<code>AbstractContainer.java:58-59</code>).</td><td>Diagnostic surface, operator-controlled network. <em>(review, §14 Q4)</em></td></tr><tr><td><code>geaflow.agent.http.port</code></td><td><code>0</code>, meaning a port chosen in 50000-60000 <em>(documented,</em> <code>ExecutionConfigKeys.java:72</code>, <code>PortUtil.java:29-30,49-51</code><em>)</em></td><td>The agent serves log retrieval, thread dumps and profiler runs. On the <strong>master</strong> it is gated by the key above. On a <strong>supervisor</strong> it is not: <code>Supervisor.start()</code> calls <code>startAgent()</code> unconditionally and retries three times on failure (<code>Supervisor.java:79-83</code>, <code>:117-125</code>), and <code>HTTP_REST_SERVICE_ENABLE</code> is not referenced in that file.</td><td>Diagnostic surface, but the asymmetry is <strong>unresolved, §14 Q4a.</strong></td></tr><tr><td><code>geaflow.supervisor.enable</code></td><td>ConfigKey default <code>false</code> <em>(documented,</em> <code>ExecutionConfigKeys.java:357</code><em>)</em>, but <strong><code>true</code> on Kubernetes</strong>: <code>KubernetesEnvironment.java:32</code> sets it in the environment constructor, and no shipped configuration file sets the key at all. <code>RayEnvironment.java:33</code> sets it false. A job can still override it, since <code>EnvironmentContext.withConfig</code> merges user config afterwards (<code>:37-41</code>).</td><td>Adds <code>SupervisorService</code>, two RPCs (<code>supervisor.proto:27-45</code>): <code>status()</code>, and <code>restart(pid)</code>, which calls <code>stopWorker(pid)</code> then <code>startWorker()</code> (<code>Supervisor.java:89-93</code>, <code>:111</code>). The PID is supplied by the caller.</td><td>Control plane, not diagnostics, and on by default on the primary deployment target. <strong>Unresolved, §14 Q4b.</strong></td></tr><tr><td><code>kubernetes.service.exposed.type</code></td><td><code>NODE_PORT</code> <em>(documented,</em> <code>KubernetesConfigKeys.java:73</code><em>)</em></td><td>Publishes job endpoints on every node&#x27;s address. <code>CLUSTER_IP</code> keeps them inside the cluster.</td><td>Evaluation convenience, not the production posture. A report against the default is <code>OUT-OF-MODEL: non-default-build</code>; §10 item 6 is unconditional. <em>(review, §14 Q5)</em></td></tr><tr><td><code>geaflow.analytics.service.server.type</code></td><td><code>analytics_rpc</code> <em>(documented,</em> <code>AnalyticsServiceConfigKeys</code><em>)</em></td><td>Selects the gRPC or HTTP query endpoint. Either way the endpoint accepts arbitrary GQL, which per §2 is arbitrary code.</td><td>In model, unauthenticated by design. <em>(review, §14 Q1, Q2)</em></td></tr><tr><td><code>geaflow.deploy.mode</code> (console)</td><td><code>local</code> <em>(documented,</em> <code>DeployConfig.java</code><em>)</em></td><td><code>local</code> starts embedded datastores with bundled credentials; <code>cluster</code> uses external ones supplied by the operator.</td><td><code>local</code> is out of model, see §3. <em>(review, §14 Q7)</em></td></tr></tbody></table>
+<p><strong>The insecure-default case.</strong> The first draft flagged two defaults as ambiguous. One is
+now settled: <code>kubernetes.service.exposed.type=NODE_PORT</code> is an evaluation convenience,
+so a report against it closes <code>OUT-OF-MODEL: non-default-build</code>, and the standing
+recommendation is that the shipped default move to <code>CLUSTER_IP</code>.</p>
+<p>What remains open is narrower, and better posed as a question about consistency than
+about exposure. The master honours an enable flag before starting its agent; the
+supervisor does not, and the supervisor is on by default on Kubernetes. The same
+deployment also carries a control-plane RPC that stops and restarts a caller-named
+process. Neither is a vulnerability under the §14 Q1 posture, but both are surfaces the
+project has not deliberately chosen. See §14 Q4a and Q4b.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="6-assumptions-about-inputs">§6 Assumptions about inputs<a href="#6-assumptions-about-inputs" class="hash-link" aria-label="Direct link to §6 Assumptions about inputs" title="Direct link to §6 Assumptions about inputs">​</a></h2>
+<p>Rows are keyed by endpoint or protocol message rather than by function, since this is
+a service rather than a library.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="engine">Engine<a href="#engine" class="hash-link" aria-label="Direct link to Engine" title="Direct link to Engine">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Entry point</th><th>Input</th><th>Attacker-controllable?</th><th>Caller / operator must enforce</th></tr></thead><tbody><tr><td><code>POST /rest/analytics/query/execute</code></td><td><code>query</code> (GQL text)</td><td><strong>yes</strong>, if the port is reachable</td><td>who can reach the port</td></tr><tr><td>gRPC <code>AnalyticsService.executeQuery</code></td><td><code>QueryRequest.query</code></td><td><strong>yes</strong>, if the port is reachable</td><td>who can reach the port</td></tr><tr><td>Any GQL statement</td><td><code>WITH (...)</code> table properties</td><td><strong>yes</strong>, from the submitter</td><td>see note below</td></tr><tr><td>Any GQL statement</td><td><code>CREATE FUNCTION ... AS &#x27;&lt;class&gt;&#x27;</code></td><td><strong>yes</strong>, from the submitter</td><td>who may submit at all (§2)</td></tr><tr><td>brpc control endpoints</td><td>kryo-encoded payload</td><td><strong>yes</strong>, from a network position</td><td>network isolation</td></tr><tr><td>Supervisor <code>restart(pid)</code></td><td>caller-supplied PID</td><td><strong>yes</strong>, from a network position</td><td>network isolation</td></tr><tr><td>Netty shuffle</td><td>kryo-encoded record frames</td><td><strong>yes</strong>, from a network position</td><td>network isolation</td></tr><tr><td>State / checkpoint stores</td><td>serialized state bytes</td><td><strong>yes</strong>, for whoever can write the store</td><td>store access control</td></tr><tr><td>Connector reads</td><td>records from Kafka, JDBC, files, HDFS, ...</td><td><strong>yes</strong></td><td>validity of upstream data</td></tr><tr><td>Agent endpoints</td><td><code>path</code>, <code>pid</code>, <code>duration</code> parameters</td><td><strong>yes</strong>, if the port is reachable</td><td>network isolation</td></tr><tr><td>Job configuration</td><td>every <code>geaflow.*</code> key</td><td><strong>no</strong>, trusted operator input</td><td>integrity of the config source</td></tr></tbody></table>
+<p><strong>Note on <code>WITH</code> properties.</strong> <code>GeaFlowTable.getConfigWithGlobal</code> merges query-supplied
+table properties <em>on top of</em> the global server configuration
+(<code>conf.putAll(globalConf); conf.putAll(this.config);</code>, <code>GeaFlowTable.java:147-151</code>)
+<em>(documented)</em>. A query therefore selects the connector and supplies its endpoint,
+path and credentials, overriding server-side values. Anyone able to submit a query can
+direct a connector at a destination of their choosing. <em>(review, §14 Q2)</em></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="console">Console<a href="#console" class="hash-link" aria-label="Direct link to Console" title="Direct link to Console">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Entry point</th><th>Input</th><th>Attacker-controllable?</th><th>Operator must enforce</th></tr></thead><tbody><tr><td><code>POST /auth/register</code></td><td>new account</td><td><strong>yes</strong>, unauthenticated by design</td><td>who can reach the console</td></tr><tr><td><code>POST /auth/login</code></td><td>credentials</td><td><strong>yes</strong></td><td>password policy, externally</td></tr><tr><td><code>/api/**</code></td><td><code>geaflow-token</code>, resolved from query string, then header, then cookie</td><td><strong>yes</strong></td><td>transport confidentiality; see the CORS note in §8 P1</td></tr><tr><td><code>POST /instances/{instance}/functions</code></td><td>UDF JAR, multipart, up to 500 MB</td><td><strong>yes</strong>, from an authenticated user</td><td>who is granted upload rights</td></tr><tr><td>Task callbacks</td><td><code>TASK-</code>-prefixed token</td><td><strong>yes</strong>, if the token leaks</td><td>protection of job configuration</td></tr></tbody></table>
+<p><strong>Note on token acceptance.</strong> <code>GeaflowApiRequest.getSessionToken</code> tries the query string,
+then the request header, then a cookie, in that order (<code>GeaflowApiRequest.java:55-66</code>),
+and <code>GeaflowAuthInterceptor.java:67</code> is the sole consumer <em>(documented)</em>. Cookie
+acceptance is what makes the CORS configuration in §8 P1 load-bearing rather than
+cosmetic: a credential the browser attaches automatically is reachable cross-origin in a
+way a header-only credential would not be.</p>
+<p><strong>Note on first-user bootstrap.</strong> There is no seeded administrator account and no
+default password. The first account to register on a fresh instance is granted
+<code>SYSTEM_ADMIN</code> (<code>UserService.java:96-99</code>) <em>(documented; the behaviour is also stated in
+the installation guide)</em>. A console reachable before an administrator has registered
+grants that role to whoever registers first.</p>
+<p><strong>Rate and size assumptions.</strong> No documented rate limit exists on any endpoint. The
+console caps uploads at 500 MB. Two engine-side bounds do exist and are frequently
+missed <em>(documented)</em>:</p>
+<ul>
+<li><code>geaflow.dsl.max.traversal</code>, default <code>64</code> (<code>DSLConfigKeys.java:80-83</code>), enforced at
+<code>GeaFlowRuntimeGraph.java:160</code> for traversals and <code>:355</code> for algorithms. Read it
+precisely: it caps <strong>iteration depth</strong>, not work. It is raised internally for
+incremental traversal (<code>:189-193</code>, <code>maxTraversal * 2 - 1</code>) and <code>Integer.MAX_VALUE</code> is
+an accepted value.</li>
+<li><code>geaflow.job.max.parallel</code>, default <code>1024</code> (<code>FrameworkConfigKeys.java:40-43</code>).</li>
+</ul>
+<p>What is genuinely absent is a bound on <strong>result size or memory</strong>. The server
+materializes an entire result set into one in-memory list
+(<code>AbstractAnalyticsServiceServer.java:124-125</code>), and the JDBC client&#x27;s limiting
+controls are stubs: <code>setMaxRows</code> and <code>setFetchSize</code> have empty bodies and their getters
+return <code>0</code> (<code>AnalyticsStatement.java:141</code>, <code>:146</code>, <code>:221</code>, <code>:226</code>). SQL <code>LIMIT</code> is
+honoured but is supplied by the query author, not imposed by the server. See §9 for the
+disposition. <em>(documented)</em></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="7-adversary-model">§7 Adversary model<a href="#7-adversary-model" class="hash-link" aria-label="Direct link to §7 Adversary model" title="Direct link to §7 Adversary model">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Adversary</th><th>Capabilities assumed</th><th>In model?</th></tr></thead><tbody><tr><td>Unauthenticated network client reaching the console port</td><td>HTTP requests, register and login attempts</td><td><strong>Yes</strong></td></tr><tr><td>Authenticated console user, non-admin</td><td>full use of their tenant&#x27;s API, UDF upload, query submission</td><td><strong>Yes</strong></td></tr><tr><td>Co-tenant console user</td><td>as above, in a different tenant, attempting to reach another&#x27;s data</td><td><strong>Yes</strong>, see §8</td></tr><tr><td>A web page the console user visits</td><td>cross-origin credentialed requests to <code>/api/**</code></td><td><strong>Yes</strong>, see §8 P1 and §14 Q15</td></tr><tr><td>Client reaching an engine port directly</td><td>arbitrary GQL, arbitrary RPC and shuffle frames</td><td><strong>No</strong>, see §14 Q1</td></tr><tr><td>Whoever can write a state or checkpoint store</td><td>crafted serialized bytes read back by a later job</td><td><strong>Yes</strong>, see §4</td></tr><tr><td>Malicious upstream data source</td><td>crafted records returned to a connector</td><td><strong>Yes</strong></td></tr><tr><td>Byzantine peer</td><td>a process inside the job behaving arbitrarily</td><td><strong>No</strong>, see below</td></tr><tr><td>Operator / deployer</td><td>full configuration control</td><td><strong>No</strong>, trusted</td></tr><tr><td>Adversary on the GeaFlow host</td><td>process and filesystem access</td><td><strong>No</strong>, already won</td></tr></tbody></table>
+<p><strong>On Byzantine peers.</strong> GeaFlow&#x27;s distributed execution is a job-scoped dataflow, not
+a consensus protocol among mutually distrusting parties; all processes in a job are
+launched by the same operator from the same image, and there is no membership concept
+on which to hang an adversary. A peer that misbehaves is treated as a fault, not an
+adversary, and no honest-fraction threshold is claimed. This reasoning covers shuffle
+and RPC only. It does not extend to durable stores, which is why they appear as a
+separate row above. <em>(review, §14 Q3)</em></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="8-security-properties-the-project-provides">§8 Security properties the project provides<a href="#8-security-properties-the-project-provides" class="hash-link" aria-label="Direct link to §8 Security properties the project provides" title="Direct link to §8 Security properties the project provides">​</a></h2>
+<p>Each property states the conditions under which it holds, the symptom of a violation,
+and whether a violation is security-critical or correctness-only.</p>
+<p><strong>P1. Console API authentication.</strong> Requests to <code>/api/**</code> require a session token that
+is present, known and not older than 24 hours; requests without one are rejected.
+<em>(documented,</em> <code>docs/docs-en/source/4.concepts/5.console_principle.md</code><em>: &quot;standardized
+RESTful APIs and authentication mechanisms&quot;)</em>
+<em>Violation symptom:</em> an unauthenticated request reaching a tenant resource.
+<em>Severity:</em> <strong>security-critical.</strong>
+<em>Condition, and it is a substantial one:</em> P1 says a request needs a token. It does not
+say the request has to come from a page you trust. The console registers a permissive
+CORS policy over every path, <code>addMapping(&quot;/**&quot;)</code> with <code>allowedOriginPatterns(&quot;*&quot;)</code>,
+<code>allowedHeaders(&quot;*&quot;)</code>, <code>allowedMethods(&quot;*&quot;)</code> and <code>allowCredentials(true)</code>
+(<code>GeaflowWebConfig.java:50-54</code>) <em>(documented)</em>. Combined with cookie-acceptable tokens
+(§6), any origin can make credentialed requests to <code>/api/**</code> and read the responses.
+Two smaller details point the same way: <code>GeaflowAuthInterceptor.java:61-63</code> returns
+<code>true</code> for <code>OPTIONS</code> before any authentication, and <code>ErrorApiCorsConfigurer.java:38-41</code>
+reflects the request <code>Origin</code> back with credentials allowed on error responses. <strong>Do not
+read P1 as protection against cross-origin requests from a browser.</strong> This is the one
+substantive gap the review surfaced and it has no agreed disposition yet; see §14 Q15.</p>
+<p><strong>P2. Tenant isolation of console metadata.</strong> Metadata reads and writes performed in a
+tenant session are constrained to that tenant. <strong>This isolation stops at the console.
+Nothing in the engine carries a tenant identity</strong>: it is console database rows plus the
+token resolved at the auth interceptor, and job configuration reaches the engine as a
+flat <code>geaflow.*</code> map with no tenant field. Two tenants&#x27; jobs may share engine state
+backends, and are separated only insofar as the operator configures separate storage.
+<em>(documented, ibid.: &quot;multi-tenant isolation&quot;; the scope limit is (review), §14 Q8)</em>
+<em>Violation symptom:</em> one tenant reading or modifying another tenant&#x27;s instances,
+graphs, tables, functions or jobs <strong>through the console API</strong>.
+<em>Severity:</em> <strong>security-critical.</strong></p>
+<p><strong>P3. Role-gated system administration.</strong> Operations reserved to <code>SYSTEM_ADMIN</code> or
+<code>TENANT_ADMIN</code> are refused to users without the role. <em>(documented, ibid.:
+&quot;fine-grained user permission control&quot;)</em>
+<em>Violation symptom:</em> a user without the role performing cluster, version, tenant or
+system-configuration changes.
+<em>Severity:</em> <strong>security-critical.</strong></p>
+<p><strong>P4. Query validation.</strong> Malformed or ill-typed GQL is rejected with an error rather
+than being mis-planned. <em>(inferred, §14 Q17)</em>
+<em>Violation symptom:</em> a parser or planner crash, or a silent wrong plan, on
+syntactically invalid input.
+<em>Severity:</em> <strong>correctness-only.</strong>
+<em>Note:</em> this property is deliberately narrow. It says nothing about what a <em>valid</em>
+query costs to run; resource consumption is disclaimed outright in §9, per §14 Q6.</p>
+<p><strong>No property is claimed for the engine&#x27;s network surfaces.</strong> Neither the analytics
+endpoints, the cluster RPC, the shuffle channel nor the agent endpoints claim
+authentication, authorization, integrity or confidentiality. This is stated as a fact
+about the current contract, not as a recommendation. See §9 and §14 Q1.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="9-security-properties-the-project-does-not-provide">§9 Security properties the project does <em>not</em> provide<a href="#9-security-properties-the-project-does-not-provide" class="hash-link" aria-label="Direct link to 9-security-properties-the-project-does-not-provide" title="Direct link to 9-security-properties-the-project-does-not-provide">​</a></h2>
+<p>This section and §10 are deliberately more substantial than §8. That asymmetry is the
+honest shape of the model as it stands.</p>
+<ul>
+<li><strong>No authentication or authorization on any engine-side network service.</strong> The
+analytics HTTP and gRPC endpoints, the master dashboard, the agent web server, the
+metric service and the brpc control endpoints all serve any client that can reach
+them. There is no auth code path on any engine listener, not even a disabled one.
+<em>(review, §14 Q1)</em></li>
+<li><strong>No transport security on any GeaFlow-served endpoint.</strong> No TLS configuration
+surface exists: no keystore or truststore settings, no <code>server.ssl.*</code> in the console&#x27;s
+only Spring configuration file, and no SSL <code>ConfigKey</code> anywhere. The analytics gRPC
+client hardcodes <code>usePlaintext()</code> (<code>RpcQueryRunner.java:139</code>), and the console&#x27;s
+default JDBC URL hardcodes <code>&amp;useSSL=false</code> (<code>JdbcPluginConfigClass.java:47</code>).
+Confidentiality and integrity in transit are entirely the operator&#x27;s to provide.
+Two things that exist and are <em>not</em> counterexamples: <code>kubernetes.cert.*</code>
+(<code>KubernetesConfigKeys.java:35,39,43,229</code>) are credentials for GeaFlow acting as a
+client of the Kubernetes API, and the operator Helm chart&#x27;s ingress <code>tls</code> list is
+empty by default and terminates outside the application. <em>(documented; disposition is
+(review), §14 Q11)</em></li>
+<li><strong>No safe handling of untrusted serialized data.</strong> Kryo runs with registration not
+required (<code>KryoSerializer.java:74</code>) <em>(documented)</em>, so a stream may name any class on
+the classpath. For shuffle and RPC this is in-model, because the set of writers is the
+set of job peers (§4, §7). For <strong>durable state and checkpoint stores it is not the
+same claim</strong>: those outlive the job and their writer set is whatever the operator
+permits. Bytes read back from a store are trusted exactly as far as the store&#x27;s own
+access control goes. <em>(review, §14 Q3)</em></li>
+<li><strong>No sandboxing of user-defined functions.</strong> A UDF runs in the engine JVM with the
+engine&#x27;s privileges. There is no restriction on what it may do. <em>(review, §14 Q2)</em></li>
+<li><strong>No isolation between a query and the engine&#x27;s environment.</strong> Because query
+properties override server configuration (§6), the query author selects connector
+endpoints and credentials. <em>(review, §14 Q2)</em></li>
+<li><strong>No resource bound on result size or memory, and none is intended.</strong> Iteration depth
+and job parallelism are bounded (§6); the size of what a query materializes is not.
+A query that exhausts cluster memory is a performance issue, not a vulnerability: the
+submitter is already entitled to run arbitrary code (§2) and could call
+<code>System.exit(0)</code> in a UDF to the same effect. Reports of this shape close
+<code>BY-DESIGN: property-disclaimed</code>. <em>(review, §14 Q6)</em></li>
+<li><strong>No cross-origin request protection on the console.</strong> Wildcard origins with
+credentials on every path, plus cookie-acceptable tokens, mean P1&#x27;s authentication
+check does not imply the request came from a page the user trusts. See §8 P1.
+<em>(documented; disposition open, §14 Q15)</em></li>
+<li><strong>No confidentiality for credentials at rest.</strong> Connector, datastore and object-store
+credentials are carried as ordinary configuration values. <em>(documented, see below)</em></li>
+<li><strong>No engine-level tenancy.</strong> Tenancy is a console database concept; it does not
+follow the job into the engine. <em>(review, §14 Q8)</em></li>
+<li><strong>No constant-time or side-channel-resistant operations</strong>, and no cryptography of the
+project&#x27;s own. <em>(review, §14 Q9)</em></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="false-friends">False friends<a href="#false-friends" class="hash-link" aria-label="Direct link to False friends" title="Direct link to False friends">​</a></h3>
+<p>Features that look like a security property and are not one. These are the highest
+value statements here for an integrator, because each corrects an assumption a reader
+is likely to arrive with:</p>
+<ul>
+<li><strong><code>geaflow.analytics.client.access.token</code> is declared and never read.</strong> It is
+described as an &quot;analytics client access token for auth&quot;
+(<code>AnalyticsClientConfigKeys.java:68-71</code>), and a search of the entire repository for
+both the constant and the literal key string returns three hits, all three inside that
+one declaration: no reads, no tests, no documentation. There is nothing to disable and
+nothing to verify; the key is dead. The obvious neighbour is dead too: the JDBC
+connect property <code>accesstoken</code> (<code>ConnectProperties.java:40</code>, <code>:135-140</code>) is parsed and
+validated from the URL and then dropped, since <code>AnalyticsDriverURI.java:25-26</code> consumes
+only <code>CUSTOM_HEADERS</code> and <code>SESSION_PROPERTIES</code>. <strong>Neither token is consumed for
+authentication anywhere.</strong> <em>(documented)</em></li>
+<li><strong><code>@GeaflowConfigValue(masked = true)</code></strong> is a display hint. <code>ConfigDescItem.java:80</code>
+copies it into a descriptor that <code>ConfigController</code> serves from <code>GET /config/*</code>, and
+the frontend uses it to decide whether to render dots (<code>configPanel.tsx:393</code> and four
+sibling components). It is applied to four production fields, the InfluxDB token, the
+JDBC password, the OSS secret key and the task token. There is no server-side
+redaction: the value is <strong>stored and transmitted in the clear</strong>, and the browser is
+the only thing that hides it. <em>(documented)</em></li>
+<li><strong>A GQL query is not a sandboxed expression.</strong> See §2. It can name a class to load,
+bring that class with it, and direct a connector at an arbitrary endpoint. <em>(review,
+§14 Q2)</em></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="well-known-attack-classes-left-to-the-caller">Well-known attack classes left to the caller<a href="#well-known-attack-classes-left-to-the-caller" class="hash-link" aria-label="Direct link to Well-known attack classes left to the caller" title="Direct link to Well-known attack classes left to the caller">​</a></h3>
+<p>Named to put integrators on notice, not to catalogue:</p>
+<ul>
+<li><strong>Query-as-code-execution</strong>, the class shared by every engine that accepts
+user-supplied functions or plugins.</li>
+<li><strong>Deserialization gadget chains</strong>, the class that follows from any unrestricted
+object stream, and which for durable stores is bounded by the store&#x27;s access control
+rather than by job lifetime.</li>
+<li><strong>Server-side request forgery</strong>, since a query names the endpoint a connector dials.</li>
+<li><strong>Unbounded result materialization</strong>, the graph-engine analogue of a decompression
+bomb: iteration depth is capped but the size of the intermediate and final result is
+not, and the server holds the whole result set in memory.</li>
+<li><strong>Cross-site request forgery against the console</strong>, given wildcard CORS with
+credentials and cookie-acceptable tokens.</li>
+<li><strong>Credential harvesting from job configuration</strong>, since configuration travels with
+the job.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="10-downstream-responsibilities">§10 Downstream responsibilities<a href="#10-downstream-responsibilities" class="hash-link" aria-label="Direct link to §10 Downstream responsibilities" title="Direct link to §10 Downstream responsibilities">​</a></h2>
+<p>What an operator must do for the assumptions in §5 to §7 to hold. This is a contract,
+not a how-to.</p>
+<p>Two of the ten dominate the rest, and an operator who does only these two is in far
+better shape than one who does the other eight. <strong>Item 1 is the correct mental model for
+the product</strong>: a query is code. <strong>Item 2 is what the model&#x27;s central posture assumes you
+have already done</strong>: the engine defends no port itself, so the network has to.</p>
+<ol>
+<li><strong>Treat the right to submit a query as equivalent to the right to run code</strong> in the
+engine&#x27;s security context. Grant it accordingly. This is not an analogy; see §2.</li>
+<li><strong>Do not place engine ports on an untrusted network.</strong> That includes the analytics
+endpoint, the master dashboard (<code>geaflow.master.http.port</code>, default <code>8090</code>), the
+agent port, the supervisor RPC port, the driver RPC port (default <code>6123</code>) and the
+shuffle channel. The model treats an unauthenticated engine port as expected
+behaviour, which is only tenable if this holds.</li>
+<li><strong>Provide transport security externally.</strong> If GQL, results or job configuration
+traverse a network you do not control, tunnel or terminate TLS in front of GeaFlow.
+Nothing in GeaFlow will do it for you.</li>
+<li><strong>Register the first console account immediately after installation</strong>, before the
+console is reachable by anyone else, since that account becomes <code>SYSTEM_ADMIN</code> (§6).</li>
+<li><strong>Control who can reach <code>POST /auth/register</code>.</strong> It is unauthenticated by design.</li>
+<li><strong>Set <code>kubernetes.service.exposed.type=CLUSTER_IP</code>.</strong> The shipped default publishes
+job endpoints, which under item 1 means unauthenticated code execution, on every
+node address.</li>
+<li><strong>Set <code>geaflow.http.rest.service.enable=false</code></strong> in deployments that do not need the
+dashboard. Note this does not reach a supervisor&#x27;s agent, which starts regardless
+(§5a).</li>
+<li><strong>Scope the Kubernetes service account</strong> to what the job needs, rather than adopting
+a broad role from a quick-start snippet. If you also run the operator, read its
+chart&#x27;s RBAC before installing it (§3).</li>
+<li><strong>Do not run the console in <code>geaflow.deploy.mode=local</code> in production</strong>, and do not
+publish the bundled database, cache or metrics ports of the all-in-one image.</li>
+<li><strong>Own the access control of every external system</strong> a connector reaches, and of
+every state and checkpoint store, <strong>and provide their transport security</strong>, since
+GeaFlow trusts what it reads back and will not encrypt the connection itself. The
+console&#x27;s own default JDBC URL disables TLS explicitly (§9).</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="11-known-misuse-patterns">§11 Known misuse patterns<a href="#11-known-misuse-patterns" class="hash-link" aria-label="Direct link to §11 Known misuse patterns" title="Direct link to §11 Known misuse patterns">​</a></h2>
+<ul>
+<li>Exposing the console, or an analytics endpoint, directly to the public internet.</li>
+<li>Relying on P1 alone in a browser context, and assuming an authenticated API is
+therefore protected against a page the user happens to visit (§8 P1).</li>
+<li>Treating <code>geaflow.analytics.client.access.token</code> as an enforced authentication
+control, or as anything at all (§9).</li>
+<li>Reading <code>masked = true</code> as encryption, redaction, or any server-side protection.</li>
+<li>Running the console in <code>local</code> deploy mode, or the evaluation Docker image, as a
+production deployment.</li>
+<li>Granting query submission to a population broader than the one you would grant shell
+access on the engine hosts.</li>
+<li>Assuming console tenant isolation extends to engine state, job output or checkpoints.</li>
+<li>Pointing two tenants&#x27; jobs at one state backend and expecting the engine to keep them
+apart.</li>
+<li>Passing credentials through query text, where they enter job configuration and
+metadata.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="11a-known-non-findings-recurring-false-positives">§11a Known non-findings (recurring false positives)<a href="#11a-known-non-findings-recurring-false-positives" class="hash-link" aria-label="Direct link to §11a Known non-findings (recurring false positives)" title="Direct link to §11a Known non-findings (recurring false positives)">​</a></h2>
+<p><strong>This section is provisional.</strong> Its entries follow from §14 answers given in review,
+not from a PPMC vote. It is written down so the PPMC can ratify or reject each entry,
+and must not be used as a suppression list until it has.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Report shape</th><th>Proposed disposition</th><th>Discharged by</th><th>Blocked on</th></tr></thead><tbody><tr><td>Any finding in <code>geaflow-examples/</code>, <code>bin/</code>, <code>data/</code>, <code>tools/</code></td><td><code>OUT-OF-MODEL: unsupported-component</code></td><td>§3</td><td>ratification</td></tr><tr><td>Insecure defaults in <code>geaflow.deploy.mode=local</code>, including the all-in-one image</td><td><code>OUT-OF-MODEL: unsupported-component</code></td><td>§3</td><td>ratification</td></tr><tr><td>Anything in the Kubernetes operator&#x27;s RBAC posture</td><td><code>OUT-OF-MODEL: unsupported-component</code>, pending its own model</td><td>§3</td><td>ratification</td></tr><tr><td>&quot;Endpoint X requires no authentication&quot;, for an engine port</td><td><code>OUT-OF-MODEL: adversary-not-in-scope</code></td><td>§7</td><td>ratification</td></tr><tr><td>&quot;Unsafe deserialization reachable from the shuffle or RPC channel&quot;</td><td><code>OUT-OF-MODEL: adversary-not-in-scope</code></td><td>§4, §7</td><td>ratification</td></tr><tr><td>&quot;Unsafe deserialization of state read back from a store&quot;</td><td><strong>not</strong> a known non-finding. Route on who can write the store</td><td>§4</td><td>none</td></tr><tr><td>&quot;This query exhausts cluster memory&quot; or &quot;the result set is unbounded&quot;</td><td><code>BY-DESIGN: property-disclaimed</code></td><td>§9</td><td>ratification</td></tr><tr><td>&quot;Job endpoints are published on every node by default&quot;</td><td><code>OUT-OF-MODEL: non-default-build</code></td><td>§5a</td><td>ratification</td></tr><tr><td>&quot;Connector credentials appear in job configuration&quot;</td><td><code>BY-DESIGN: property-disclaimed</code></td><td>§9</td><td>none</td></tr><tr><td>&quot;No TLS on inter-node traffic&quot;</td><td><code>BY-DESIGN: property-disclaimed</code>, and a roadmap item</td><td>§9</td><td>ratification</td></tr><tr><td>&quot;Timing differences in token or password comparison&quot;</td><td><code>BY-DESIGN: property-disclaimed</code></td><td>§3, §9</td><td>ratification</td></tr><tr><td>CORS on <code>/api/**</code></td><td><strong>not</strong> a known non-finding. Open, §14 Q15</td><td></td><td>Q15</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="12-conditions-that-would-change-this-model">§12 Conditions that would change this model<a href="#12-conditions-that-would-change-this-model" class="hash-link" aria-label="Direct link to §12 Conditions that would change this model" title="Direct link to §12 Conditions that would change this model">​</a></h2>
+<p>Revise when any of the following happens:</p>
+<ul>
+<li>A new network listener, or authentication added to an existing one.</li>
+<li>A change of default for any §5a knob, including a change to how a deployment target
+overrides one.</li>
+<li>A new connector, or a change to how table properties merge with server configuration.</li>
+<li>A change to the console&#x27;s CORS policy, or to where a session token may be presented.</li>
+<li>A new deployment shape, or promotion of the operator, MCP or AI surfaces into the
+supported perimeter.</li>
+<li><strong>Each release, for the <code>geaflow-mcp</code> and <code>geaflow-ai</code> exclusions specifically.</strong> They
+are excluded as of the bound commit, not permanently (§3), and an expiring exclusion
+that is never revisited becomes a standing one by neglect.</li>
+<li>Adoption of TLS or of a credential store.</li>
+<li><strong>A report that cannot be routed cleanly to one §13 disposition.</strong> That means the
+model has a gap: the correct response is to revise this document, adding the property
+to §8 or §9, rather than to make an ad-hoc call on the report.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="13-triage-dispositions">§13 Triage dispositions<a href="#13-triage-dispositions" class="hash-link" aria-label="Direct link to §13 Triage dispositions" title="Direct link to §13 Triage dispositions">​</a></h2>
+<p>The closed set of outcomes for a report, tool finding or AI analysis judged against
+this model. A finding that does not fit is not &quot;other&quot;: it is <code>MODEL-GAP</code>, and the
+model gets revised.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Disposition</th><th>Meaning</th><th>Licensed by</th></tr></thead><tbody><tr><td><code>VALID</code></td><td>Violates a property claimed in §8, via an in-scope adversary and input.</td><td>§8, §6, §7</td></tr><tr><td><code>VALID-HARDENING</code></td><td>No §8 property is violated, but the interface makes a §11 misuse easy enough that the project elects to harden it. Reported privately, fixed at maintainer discretion, typically no CVE.</td><td>§11</td></tr><tr><td><code>OUT-OF-MODEL: trusted-input</code></td><td>Requires control of an input the model marks trusted, such as job configuration.</td><td>§6</td></tr><tr><td><code>OUT-OF-MODEL: adversary-not-in-scope</code></td><td>Requires a capability the model excludes, such as a network position inside the cluster.</td><td>§7</td></tr><tr><td><code>OUT-OF-MODEL: unsupported-component</code></td><td>Lands in code placed out of scope.</td><td>§3</td></tr><tr><td><code>OUT-OF-MODEL: non-default-build</code></td><td>Manifests only under a discouraged or non-default configuration.</td><td>§5a</td></tr><tr><td><code>BY-DESIGN: property-disclaimed</code></td><td>Concerns a property §9 explicitly does not provide.</td><td>§9</td></tr><tr><td><code>KNOWN-NON-FINDING</code></td><td>Matches a ratified entry in §11a.</td><td>§11a</td></tr><tr><td><code>MODEL-GAP</code></td><td>Cannot be routed to any of the above.</td><td>triggers §12</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="14-questions-and-answers">§14 Questions and answers<a href="#14-questions-and-answers" class="hash-link" aria-label="Direct link to §14 Questions and answers" title="Direct link to §14 Questions and answers">​</a></h2>
+<p>The first draft posed fourteen questions. All fourteen were answered during the ASF
+Security Team review, and their consequences are already folded into the sections above;
+this section records the answers and where each landed, so a reader can audit the
+reasoning rather than take the body on faith.</p>
+<p><strong>These answers are <code>*(review)*</code>, not <code>*(maintainer)*</code>.</strong> They are a reviewer&#x27;s reading
+of the code, sourced and checked, but the PPMC has not voted on any of them. Ratifying
+this section is what turns the document from a description into a policy.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="wave-1-scope-and-posture-answered">Wave 1: scope and posture, answered<a href="#wave-1-scope-and-posture-answered" class="hash-link" aria-label="Direct link to Wave 1: scope and posture, answered" title="Direct link to Wave 1: scope and posture, answered">​</a></h3>
+<p><strong>Q1. Is the cluster network a trust boundary? No.</strong> There is no authentication code
+path on any engine listener, not even a disabled one: the analytics handler only sets
+CORS headers, the gRPC client hardcodes <code>usePlaintext()</code>, and brpc and shuffle carry
+Kryo with registration off. Apache Spark and Apache Flink document the same posture. A
+report of &quot;endpoint X is unauthenticated&quot; is <code>OUT-OF-MODEL: adversary-not-in-scope</code>, and
+the obligation moves to §10.
+<em>Landed in:</em> §4, §5, §7, §9, §10 item 2, §11a.</p>
+<p><strong>Q2. Is submitting a query equivalent to executing code? Yes</strong>, by three independent
+routes, any one sufficient: <code>CREATE FUNCTION</code> class loading, console UDF upload onto the
+engine classpath, and query <code>WITH</code> properties overriding global configuration.
+<em>Landed in:</em> §2 (as its own paragraph), §4, §6, §9, §10 item 1.</p>
+<p><strong>Q3. Are peers trusted? Yes, but the claim splits in two.</strong> Trusting peers is right for
+shuffle and RPC: one image, one operator, no membership concept to hang an adversary on.
+It is not right for state and checkpoint stores, which outlive the job and can be written
+by something that was never a peer. The first draft lumped them together, which would
+have turned &quot;we trust our peers&quot; into &quot;we trust anything ever written to a checkpoint
+path&quot;.
+<em>Landed in:</em> §4 point 3, §7 (new adversary row), §9.</p>
+<p><strong>Q4. What is the intended posture of the agent and dashboard endpoints? Diagnostic
+surfaces</strong>, on an operator-controlled network. The first draft&#x27;s premise was wrong: the
+master&#x27;s agent <em>is</em> gated, by <code>geaflow.http.rest.service.enable</code>. Two things do not close
+with this answer and are carried forward as Q4a and Q4b below.
+<em>Landed in:</em> §5, §5a.</p>
+<p><strong>Q5. Is <code>kubernetes.service.exposed.type=NODE_PORT</code> the supported production default?
+No.</strong> It is an evaluation convenience, so a report against it is
+<code>OUT-OF-MODEL: non-default-build</code>. The reviewer&#x27;s recommendation goes further: change the
+shipped default to <code>CLUSTER_IP</code> (<code>KubernetesConfigKeys.java:74</code>), since under Q1 and Q2
+the current default publishes unauthenticated code execution on every node address, and
+defaults are what people actually deploy. That is an engine-repository change, tracked as
+a follow-up rather than made here.
+<em>Landed in:</em> §5a, §10 item 6 (now unconditional), §11a, §13.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="wave-2-properties-and-limits-answered">Wave 2: properties and limits, answered<a href="#wave-2-properties-and-limits-answered" class="hash-link" aria-label="Direct link to Wave 2: properties and limits, answered" title="Direct link to Wave 2: properties and limits, answered">​</a></h3>
+<p><strong>Q6. Where is the line on resource consumption? There is no line, and none is
+intended.</strong> Given Q2, a resource-exhaustion report from someone entitled to submit
+queries is not a vulnerability; they could call <code>System.exit(0)</code> in a UDF instead. It
+would escalate only if reachable from a client the model does not trust, which Q1 rules
+out. Disposition <code>BY-DESIGN: property-disclaimed</code>. A categorical answer beats a number,
+because it does not need revising every release.
+<em>Landed in:</em> §8 P4 (narrowed to validation alone), §9, §11a.</p>
+<p><strong>Q7. Is the out-of-scope list right? Yes</strong>, with three refinements. The operator case is
+stronger on the merits than the draft made it: cluster-scoped wildcard RBAC over six API
+groups including Secrets, and that is the default install path. <code>geaflow-mcp</code> and
+<code>geaflow-ai</code> get an expiring exclusion rather than a standing one, with a §12 trigger.
+The demo-image carve-out attaches to <code>geaflow.deploy.mode=local</code> rather than to the
+Dockerfiles, since local mode is what starts embedded datastores with bundled credentials
+and it is reachable outside those images. <code>tools/</code> is now named.
+<em>Landed in:</em> §3, §11a, §12.</p>
+<p><strong>Q8. Does tenant isolation extend below the console? No.</strong> Nothing in the engine carries
+a tenant identity: it is console database rows plus the token resolved at the auth
+interceptor, and job configuration arrives as a flat <code>geaflow.*</code> map with no tenant field.
+The negative belongs inside P2, where integrators will actually read it, not in a trailing
+condition.
+<em>Landed in:</em> §8 P2, §9, §11.</p>
+<p><strong>Q9. Are side channels out of scope? Yes, entirely.</strong> GeaFlow implements no cryptography
+of its own. The corollary is worth naming so that reports are answered before they are
+filed: token and password comparison is ordinary equality.
+<em>Landed in:</em> §3, §9, §11a.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="wave-3-confirmations-and-meta-answered">Wave 3: confirmations and meta, answered<a href="#wave-3-confirmations-and-meta-answered" class="hash-link" aria-label="Direct link to Wave 3: confirmations and meta, answered" title="Direct link to Wave 3: confirmations and meta, answered">​</a></h3>
+<p><strong>Q10. What is assumed of the backing MySQL, Redis, InfluxDB and DFS?</strong> That the operator
+access-controls them and that GeaFlow trusts what it reads back, <strong>and</strong> that the operator
+provides their transport security: the console&#x27;s default JDBC URL hardcodes
+<code>&amp;useSSL=false</code>.
+<em>Landed in:</em> §5, §10 item 10.</p>
+<p><strong>Q11. Is the absence of TLS deliberate, or simply not yet built? Not yet built</strong>, and the
+document says both things at once. There is no TLS configuration surface anywhere, no
+keystore or truststore keys, no <code>server.ssl.*</code>, plus <code>usePlaintext()</code> and <code>useSSL=false</code>
+hardcoded. A deliberate decision normally leaves a disabled switch behind, and there is
+none. So: disclaimed for the model as it stands, meaning a TLS report closes
+<code>BY-DESIGN: property-disclaimed</code>, <strong>and</strong> filed as a roadmap item rather than won&#x27;t-fix.
+The first half alone would read as a design stance the project has not actually taken.
+<em>Landed in:</em> §9, §11a.</p>
+<p><strong>Q12. What should happen to <code>geaflow.analytics.client.access.token</code>? Remove it.</strong> It is
+not merely unenforced, it is never read: three hits repository-wide, all inside its own
+declaration. Review also found that the JDBC <code>accesstoken</code> connect property, initially
+thought to be the working client-side counterpart, is likewise parsed and dropped. A key
+called <code>...access.token</code> described as &quot;for auth&quot; that nothing consumes is worth less than
+nothing, and removing it is a smaller change than documenting it. If config keys are
+frozen before graduation, change the description string at minimum. Engine-repository
+change, tracked as a follow-up.
+<em>Landed in:</em> §9 false friends, §11.</p>
+<p><strong>Q13. Is <code>masked = true</code> a UI hint? Yes.</strong> <code>ConfigDescItem.java:80</code> copies it into a
+descriptor the console serves for rendering; four production fields carry it; nothing
+touches storage. Worth adding, since &quot;masked&quot; invites the opposite reading: the values
+are stored <em>and transmitted</em> in the clear, and the browser is the only thing that hides
+them.
+<em>Landed in:</em> §9 false friends, §11.</p>
+<p><strong>Q14. Where should this document live, and who owns it? Here</strong>, on the project website,
+revised per §12, ratified by PPMC vote, with the trigger list as it stands. One of the two
+stated conditions is met: apache/geaflow#828 is merged. The other is not; see the
+residual item below. On a Chinese translation, the recommendation is not to maintain one:
+§12 designs this document to change, and a stale translated threat model is worse than
+none.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="still-open">Still open<a href="#still-open" class="hash-link" aria-label="Direct link to Still open" title="Direct link to Still open">​</a></h3>
+<p><strong>Q4a. Should <code>Supervisor.startAgent()</code> honour an enable flag, the way the master path
+does?</strong> <code>AbstractMaster</code> checks <code>geaflow.http.rest.service.enable</code> before starting its
+agent; <code>Supervisor.start()</code> does not, and retries three times if the agent fails to bind.
+On Kubernetes the supervisor is on by default, so every worker runs an agent that
+<code>geaflow.http.rest.service.enable=false</code> does not reach. Not a vulnerability under Q1, but
+an inconsistency the project has not chosen deliberately.</p>
+<p><strong>Q4b. Is the supervisor <code>restart(pid)</code> RPC intended as a supported control surface?</strong> It
+is control plane rather than diagnostics: it stops and restarts the worker, the PID comes
+from the caller, and it is on by default on the primary deployment target. The Q4 answer
+covers the agent and the dashboard; this endpoint should be dispositioned separately.</p>
+<p><strong>Q15 (new). Is the console&#x27;s CORS policy intentional?</strong> <code>addMapping(&quot;/**&quot;)</code> with
+<code>allowedOriginPatterns(&quot;*&quot;)</code> and <code>allowCredentials(true)</code>, over an API whose session token
+is accepted from a cookie, means any origin can issue credentialed requests to <code>/api/**</code>
+and read the responses. <code>OPTIONS</code> bypasses the auth interceptor, and error responses
+reflect <code>Origin</code> with credentials allowed. This is the one substantive gap the review
+surfaced rather than a correction to the draft, and it is the only item here with no
+proposed disposition. It most likely wants a <code>VALID-HARDENING</code>-shaped answer.</p>
+<p><strong>Q16 (new). When will GeaFlow be listed at
+<a href="https://security.apache.org/projects/" target="_blank" rel="noopener noreferrer">security.apache.org/projects</a>?</strong> The entire Q1
+posture depends on the ASF Security Team being able to close out-of-model reports without
+pulling in the PPMC for each one. Being listed is what lets that happen, and so it is what
+makes this document pay off in practice. Track it as an action item alongside
+ratification, not as a documentation question.</p>
+<p><strong>Q17 (new). The two remaining <code>*(inferred)*</code> claims.</strong> Everything else in the document is
+now either cited or attributed to the review; these two are not, and are listed here so
+that no inferred claim sits in the document without a matching question.</p>
+<ul>
+<li>§5, the negative inventory of what GeaFlow does to its host: that it does not install
+signal handlers, mutate global locale or FPU state, or read the environment beyond
+documented deployment variables. Negative claims of this shape are the hardest to
+establish by reading code and the easiest for a maintainer to confirm outright.</li>
+<li>§8 P4, that malformed or ill-typed GQL is rejected rather than mis-planned. Nobody has
+confirmed the parser and planner behave this way, and P4 is the only §8 property resting
+on inference.</li>
+</ul>
+<p><strong>Q14 residual: nothing links here.</strong> <code>community/en/security.md</code> is still a five-line
+stub, so this model is reachable only from the sidebar. It will not appear under
+<code>/community/zh</code> at all: <code>zh-community</code> is a separate Docusaurus plugin instance rooted at
+<code>community/zh</code> with its own autogenerated sidebar (<code>docusaurus.config.ts:93-96</code>). Filling
+the English Security page to link here, and pointing the Chinese one at the English page,
+was Q14&#x27;s second condition and is not yet done.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="provenance-count">Provenance count<a href="#provenance-count" class="hash-link" aria-label="Direct link to Provenance count" title="Direct link to Provenance count">​</a></h3>
+<p>Counted over this document: <strong>31 documented / 0 maintainer / 29 review / 2 inferred.</strong>
+The first draft was 20 documented / 0 maintainer / 30 inferred. What changed is not that
+the project decided anything, it is that a reviewer read the code: claims that were
+guesses are now either cited or attributed. The zero in the maintainer column is the
+number that matters, and it is what §14 exists to change.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="appendix-securitymd-back-map">Appendix: <code>SECURITY.md</code> back-map<a href="#appendix-securitymd-back-map" class="hash-link" aria-label="Direct link to appendix-securitymd-back-map" title="Direct link to appendix-securitymd-back-map">​</a></h2>
+<p>Coverage check against the project&#x27;s existing security artifact, per the rubric&#x27;s
+requirement that this document be a strict superset of it. GeaFlow&#x27;s <code>SECURITY.md</code> is
+almost entirely disclosure process, which is out of scope for a threat model, so this
+map is short by nature.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><code>SECURITY.md</code> statement</th><th>Threat model section</th></tr></thead><tbody><tr><td>Report vulnerabilities to <code>security@apache.org</code></td><td>§1, reporting cross-reference</td></tr><tr><td>Report one finding per plaintext e-mail</td><td>not applicable, process</td></tr><tr><td>Acknowledgement within 3 business days, target 90 days to fix</td><td>not applicable, process</td></tr><tr><td>Do not disclose publicly before a fix</td><td>not applicable, process</td></tr><tr><td>Do not exploit beyond demonstrating</td><td>§7, adversary model</td></tr><tr><td><em>(no statement of scope, trusted inputs, or non-vulnerabilities)</em></td><td>this document adds §2, §3, §6, §7, §8, §9</td></tr></tbody></table>
+<p>Nothing asserted in <code>SECURITY.md</code> is dropped, weakened or contradicted here.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/community/security"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Security</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-header" class="table-of-contents__link toc-highlight">§1 Header</a></li><li><a href="#2-scope-and-intended-use" class="table-of-contents__link toc-highlight">§2 Scope and intended use</a></li><li><a href="#3-out-of-scope-explicit-non-goals" class="table-of-contents__link toc-highlight">§3 Out of scope (explicit non-goals)</a></li><li><a href="#4-trust-boundaries-and-data-flow" class="table-of-contents__link toc-highlight">§4 Trust boundaries and data flow</a></li><li><a href="#5-assumptions-about-the-environment" class="table-of-contents__link toc-highlight">§5 Assumptions about the environment</a></li><li><a href="#5a-build-time-and-configuration-variants" class="table-of-contents__link toc-highlight">§5a Build-time and configuration variants</a></li><li><a href="#6-assumptions-about-inputs" class="table-of-contents__link toc-highlight">§6 Assumptions about inputs</a><ul><li><a href="#engine" class="table-of-contents__link toc-highlight">Engine</a></li><li><a href="#console" class="table-of-contents__link toc-highlight">Console</a></li></ul></li><li><a href="#7-adversary-model" class="table-of-contents__link toc-highlight">§7 Adversary model</a></li><li><a href="#8-security-properties-the-project-provides" class="table-of-contents__link toc-highlight">§8 Security properties the project provides</a></li><li><a href="#9-security-properties-the-project-does-not-provide" class="table-of-contents__link toc-highlight">§9 Security properties the project does <em>not</em> provide</a><ul><li><a href="#false-friends" class="table-of-contents__link toc-highlight">False friends</a></li><li><a href="#well-known-attack-classes-left-to-the-caller" class="table-of-contents__link toc-highlight">Well-known attack classes left to the caller</a></li></ul></li><li><a href="#10-downstream-responsibilities" class="table-of-contents__link toc-highlight">§10 Downstream responsibilities</a></li><li><a href="#11-known-misuse-patterns" class="table-of-contents__link toc-highlight">§11 Known misuse patterns</a></li><li><a href="#11a-known-non-findings-recurring-false-positives" class="table-of-contents__link toc-highlight">§11a Known non-findings (recurring false positives)</a></li><li><a href="#12-conditions-that-would-change-this-model" class="table-of-contents__link toc-highlight">§12 Conditions that would change this model</a></li><li><a href="#13-triage-dispositions" class="table-of-contents__link toc-highlight">§13 Triage dispositions</a></li><li><a href="#14-questions-and-answers" class="table-of-contents__link toc-highlight">§14 Questions and answers</a><ul><li><a href="#wave-1-scope-and-posture-answered" class="table-of-contents__link toc-highlight">Wave 1: scope and posture, answered</a></li><li><a href="#wave-2-properties-and-limits-answered" class="table-of-contents__link toc-highlight">Wave 2: properties and limits, answered</a></li><li><a href="#wave-3-confirmations-and-meta-answered" class="table-of-contents__link toc-highlight">Wave 3: confirmations and meta, answered</a></li><li><a href="#still-open" class="table-of-contents__link toc-highlight">Still open</a></li><li><a href="#provenance-count" class="table-of-contents__link toc-highlight">Provenance count</a></li></ul></li><li><a href="#appendix-securitymd-back-map" class="table-of-contents__link toc-highlight">Appendix: <code>SECURITY.md</code> back-map</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="margin-bottom--sm"><a href="https://incubator.apache.org/" rel="noopener noreferrer" class="footerLogoLink_BH7S"><img src="/img/asf_logo.svg" alt="Apache Incubator logo" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE" width="200"><img src="/img/asf_logo.svg" alt="Apache Incubator logo" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU" width="200"></a></div><div class="footer__copyright"><br><p><a href="https://geaflow.apache.org/">Apache Geaflow</a> is an effort undergoing incubation at The <a href="https://www.apache.org/">Apache Software Foundation (ASF)</a>, sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</p>
+                  <p>Copyright © 2026 The Apache Software Foundation, Licensed under the Apache License, Version 2.0.</p>
+                  <p>Apache, the names of Apache projects, and the feather logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. All other marks mentioned may be trademarks or registered trademarks of their respective owners.</p></div></div></div></footer></div>
+</body>
+</html>
