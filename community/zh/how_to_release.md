@@ -1,44 +1,43 @@
 ---
-title: How to Release
+title: 如何发布
 ---
 
-<font style="color:rgb(0, 0, 0);">This document outlines the process for a release manager to publish a new version of Apache Geaflow (Incubating).</font>
+<font style="color:rgb(0, 0, 0);">本文档概述了发布管理员发布 Apache Geaflow（孵化中）新版本的流程。</font>
 
-## Introduction
+## 简介
 
-<font style="color:rgb(0, 0, 0);">Source Release is a critical process at Apache, emphasizing compliance with licensing and signing requirements. Releasing software carries legal implications, so careful attention is essential.</font>
+<font style="color:rgb(0, 0, 0);">源码发布是 Apache 的关键流程，强调遵守许可证和签名要求。发布软件具有法律含义，因此必须谨慎对待。</font>
 
-## First-time as a release manager
+## 首次成为发布管理员
 
-### <font style="background-color:#FBDE28;">Environmental requirements</font>
+### <font style="background-color:#FBDE28;">环境要求</font>
 
-This release process is operated in the Ubuntu OS, and the following tools are required:
+此发布流程在 Ubuntu 操作系统中运行，需要以下工具：
 
 - JDK 1.8
 - Apache Maven 3.x
 - Python 3.8
 - GnuPG 2.x
 - Git
-- SVN (apache uses svn to host project releases)
-- Pay attention to setting environment variables: if you configure gpg keys under a different directory,  
-  please `export GNUPGHOME=$(xxx)`
+- SVN（Apache 使用 SVN 托管项目发布）
+- 注意设置环境变量：如果您在不同目录下配置 gpg 密钥，
+  请执行 `export GNUPGHOME=$(xxx)`
 
-### Prepare GPG Key
+### 准备 GPG 密钥
 
-If you are the first to become a release manager, you need to prepare a gpg key.
+如果您是首次成为发布管理员，需要准备 GPG 密钥。
 
-Following is a quick setup, you can refer to [Apache openpgp doc](https://infra.apache.org/openpgp.html) for further  
-details.
+以下是快速设置步骤，您可以参考 [Apache openpgp 文档](https://infra.apache.org/openpgp.html) 获取更多详细信息。
 
-#### Install GPG
+#### 安装 GPG
 
 ```bash
 sudo apt install gnupg2
 ```
 
-#### Generate GPG Key
+#### 生成 GPG 密钥
 
-Please use your apache name and email for generate key
+请使用您的 Apache 名称和电子邮件生成密钥
 
 ```bash
 $ gpg --full-gen-key
@@ -103,15 +102,15 @@ uid           [ultimate] Chaokun <chaokunyang@apache.org>
 sub   rsa4096 2022-07-12 [E]
 ```
 
-#### Upload your public key to public GPG keyserver
+#### 将公钥上传到公共 GPG 密钥服务器
 
-Firstly, list your key:
+首先，列出您的密钥：
 
 ```bash
 gpg --list-keys
 ```
 
-The output is like:
+输出类似：
 
 ```bash
 --------------------------------------------------
@@ -121,27 +120,26 @@ uid           [ultimate] chaokunyang (CODE SIGNING KEY) <chaokunyang@apache.org>
 sub   rsa4096 2024-03-27 [E]
 ```
 
-Then, send your key id to key server:
+然后，将您的密钥 ID 发送到密钥服务器：
 
 ```bash
-gpg --keyserver keys.openpgp.org --send-key <key-id> # e.g., 1E2CDAE4C08AD7D694D1CB139D7BE8E45E580BA4
+gpg --keyserver keys.openpgp.org --send-key <key-id> # 例如，1E2CDAE4C08AD7D694D1CB139D7BE8E45E580BA4
 ```
 
-Among them, `keys.openpgp.org` is a randomly selected keyserver, you can use keyserver.ubuntu.com or any other  
-full-featured keyserver.
+其中，`keys.openpgp.org` 是随机选择的密钥服务器，您可以使用 keyserver.ubuntu.com 或任何其他功能完整的密钥服务器。
 
-#### Check whether the key is created successfully
+#### 检查密钥是否创建成功
 
-Uploading takes about one minute; after that, you can check by email at the corresponding keyserver.
+上传需要约一分钟时间；之后，您可以通过相应密钥服务器上的电子邮件进行检查。
 
-Uploading keys to the keyserver is mainly for joining  
-a [Web of Trust](https://infra.apache.org/release-signing.html#web-of-trust).
+将密钥上传到密钥服务器主要是为了加入
+[信任网络](https://infra.apache.org/release-signing.html#web-of-trust)。
 
-#### Add your GPG public key to the project KEYS file
+#### 将您的 GPG 公钥添加到项目 KEYS 文件
 
-The svn repository of the release branch is: https://dist.apache.org/repos/dist/release/geaflow
+发布分支的 SVN 仓库是：https://dist.apache.org/repos/dist/release/geaflow
 
-Please add the public key to KEYS in the release branch:
+请将公钥添加到发布分支的 KEYS 文件中：
 
 ```bash
 svn co https://dist.apache.org/repos/dist/release/Geaflow Geaflow-dist
@@ -152,35 +150,34 @@ svn add .   # It is not needed if the KEYS document exists before.
 svn ci -m "add gpg key for YOUR_NAME" # Later on, if you are asked to enter a username and password, just use your apache username and password.
 ```
 
-#### Upload the GPG public key to your GitHub account
+#### 将 GPG 公钥上传到您的 GitHub 账户
 
-- Enter [https://github.com/settings/keys](https://github.com/settings/keys) to add your GPG key.
-- Please remember to bind the email address used in the GPG key to your GitHub  
-  account ([https://github.com/settings/emails](https://github.com/settings/emails)) if you find "unverified" after adding it.
+- 进入 [https://github.com/settings/keys](https://github.com/settings/keys) 添加您的 GPG 密钥。
+- 如果添加后发现 "未验证"，请记得将 GPG 密钥中使用的电子邮件地址绑定到您的 GitHub
+  账户（[https://github.com/settings/emails](https://github.com/settings/emails)）。
 
-### Further reading
+### 进一步阅读
 
-It's recommended but not mandatory to read following documents before making a release to know more details about apache  
-release:
+在进行发布之前，建议但非必须阅读以下文档以了解有关 Apache 发布的更多详细信息：
 
-- Release policy: [https://www.apache.org/legal/release-policy.html](https://www.apache.org/legal/release-policy.html)
-- TLP release: [https://infra.apache.org/release-distribution](https://infra.apache.org/release-distribution)
-- Release sign: [https://infra.apache.org/release-signing.html](https://infra.apache.org/release-signing.html)
-- Release publish: [https://infra.apache.org/release-publishing.html](https://infra.apache.org/release-publishing.html)
-- Release download pages: [https://infra.apache.org/release-download-pages.html](https://infra.apache.org/release-download-pages.html)
-- Publishing maven artifacts: [https://infra.apache.org/publishing-maven-artifacts.html](https://infra.apache.org/publishing-maven-artifacts.html)
+- 发布政策：[https://www.apache.org/legal/release-policy.html](https://www.apache.org/legal/release-policy.html)
+- TLP 发布：[https://infra.apache.org/release-distribution](https://infra.apache.org/release-distribution)
+- 发布签名：[https://infra.apache.org/release-signing.html](https://infra.apache.org/release-signing.html)
+- 发布发布：[https://infra.apache.org/release-publishing.html](https://infra.apache.org/release-publishing.html)
+- 发布下载页面：[https://infra.apache.org/release-download-pages.html](https://infra.apache.org/release-download-pages.html)
+- 发布 Maven 构件：[https://infra.apache.org/publishing-maven-artifacts.html](https://infra.apache.org/publishing-maven-artifacts.html)
 
-## <font style="background-color:#FBDE28;">Start discussion about the release</font>
+## <font style="background-color:#FBDE28;">开始讨论发布</font>
 
-Start a discussion about the next release via sending email to: dev@Geaflow.apache.org:
+通过发送电子邮件到 dev@Geaflow.apache.org 开始讨论下一个版本：
 
-Title:
+标题：
 
 ```plain
 [DISCUSS] Release Apache Geaflow ${release_version}
 ```
 
-Content:
+内容：
 
 ```plain
 Hello, Apache Geaflow Community,
@@ -198,30 +195,30 @@ Thanks,
 ${name}
 ```
 
-## Preparing for release
+## 准备发布
 
-If the discussion goes positive, you will need to prepare the release artifiacts.
+如果讨论结果积极，您需要准备发布构件。
 
-### Github branch and tag
+### Github 分支和标签
 
-- Create a new branch named `releases-0.12.0`
-- Bump version to `$version` by executing command `python ci/release.py bump_version -l all -version $version`
-- Make a git commit and push the branch to `git@github.com:apache/Geaflow.git`
-- Create a new tag by `git tag v0.12.0-rc1`, then push it to `git@github.com:apache/Geaflow.git`
+- 创建一个名为 `releases-0.12.0` 的新分支
+- 通过执行命令 `python ci/release.py bump_version -l all -version $version` 将版本升级到 `$version`
+- 进行 git 提交并将分支推送到 `git@github.com:apache/Geaflow.git`
+- 通过 `git tag v0.12.0-rc1` 创建一个新标签，然后将其推送到 `git@github.com:apache/Geaflow.git`
 
-### Build and upload artifacts to SVN dist/dev repo
+### 构建并上传构件到 SVN dist/dev 仓库
 
-First you need to build source release artifacts by `python ci/release.py build -v $version`.
+首先，您需要通过 `python ci/release.py build -v $version` 构建源码发布构件。
 
-Then you need to upload it to svn dist repo. The dist repo of the dev branch  
-is: [https://dist.apache.org/repos/dist/dev/Geaflow](https://dist.apache.org/repos/dist/dev/fory)
+然后，您需要将其上传到 SVN dist 仓库。开发分支的 dist 仓库
+是：[https://dist.apache.org/repos/dist/dev/Geaflow](https://dist.apache.org/repos/dist/dev/fory)
 
 ```bash
 # As this step will copy all the versions, it will take some time. If the network is broken, please use svn cleanup to delete the lock before re-execute it.
 svn co https://dist.apache.org/repos/dist/dev/Geaflow Geaflow-dist-dev
 ```
 
-Then, upload the artifacts:
+然后，上传构件：
 
 ```bash
 cd Geaflow-dist-dev
@@ -239,31 +236,31 @@ svn status
 svn commit -m "Prepare for Geaflow ${release_version}-${rc_version}"
 ```
 
-Visit [https://dist.apache.org/repos/dist/dev/Geaflow/](https://dist.apache.org/repos/dist/dev/fory/) to check the artifacts are uploaded correctly.
+访问 [https://dist.apache.org/repos/dist/dev/Geaflow/](https://dist.apache.org/repos/dist/dev/fory/) 检查构件是否正确上传。
 
-### What to do if something goes wrong
+### 如果出现问题怎么办
 
-If some files are unexpected, you need to remove by `svn delete` and repeat the above upload process.
+如果有意外文件，您需要通过 `svn delete` 删除它们并重复上述上传过程。
 
-## <font style="background-color:#FBDE28;">Voting</font>
+## <font style="background-color:#FBDE28;">投票</font>
 
-### check version
+### 检查版本
 
-Geaflow requires votes from the Geaflow Community.
+Geaflow 需要 Geaflow 社区的投票。
 
-- release_version: the version for Geaflow, like 0.12.0.
-- release_candidate_version: the version for voting, like 0.12.0-rc1.
-- maven_artifact_number: the number for Maven staging artifacts, like 1001. Specifically, the maven_artifact_number can  
-  be found by searching "Geaflow" on https://repository.apache.org/#stagingRepositories.
+- release_version: Geaflow 的版本，如 0.12.0。
+- release_candidate_version: 投票的版本，如 0.12.0-rc1。
+- maven_artifact_number: Maven 暂存构件的编号，如 1001。具体来说，maven_artifact_number 可以
+  通过在 https://repository.apache.org/#stagingRepositories 上搜索 "Geaflow" 找到。
 
-### <font style="background-color:#FBDE28;">Build the source code of Geaflow and release it to nexus</font>
+### <font style="background-color:#FBDE28;">构建 Geaflow 源代码并发布到 nexus</font>
 
-#### Configure Apache Account Passwords
+#### 配置 Apache 账户密码
 
-Before publishing Geaflow to Nexus, you need to securely configure your Apache account credentials. This step is critical as passwords must be encrypted.
+在将 Geaflow 发布到 Nexus 之前，您需要安全配置 Apache 账户凭据。此步骤至关重要，因为密码必须加密。
 
-First, open your Maven global settings file `settings.xml`, typically located at `~/.m2/settings.xml`. Add or modify the  
-following section:
+首先，打开您的 Maven 全局设置文件 `settings.xml`，通常位于 `~/.m2/settings.xml`。添加或修改
+以下部分：
 
 ```xml
 
@@ -282,18 +279,17 @@ following section:
 
 ```
 
-**Important Notes:**
+**重要说明：**
 
-- Replace `your-apache-username` with your Apache LDAP username
-- Passwords must be encrypted using Maven's password encryption tool
-- Encrypted passwords should be enclosed in curly braces `{}`
+- 将 `your-apache-username` 替换为您的 Apache LDAP 用户名
+- 密码必须使用 Maven 的密码加密工具加密
+- 加密的密码应包含在花括号 `{}` 中
 
-Refer to the official documentation for detailed encryption  
-instructions: [Publishing Maven Artifacts](https://infra.apache.org/publishing-maven-artifacts.html)
+有关详细的加密说明，请参考官方文档：[发布 Maven 构件](https://infra.apache.org/publishing-maven-artifacts.html)
 
-Steps to encrypt your password:
+加密密码的步骤：
 
-1. Generate a master password (if you haven't already):
+1. 生成主密码（如果尚未生成）：
 
 ```shell
 
@@ -301,7 +297,7 @@ mvn --encrypt-master-password your-master-password
 
 ```
 
-Save the output to `~/.m2/settings-security.xml`:
+将输出保存到 `~/.m2/settings-security.xml`：
 
 ```xml
 
@@ -311,7 +307,7 @@ Save the output to `~/.m2/settings-security.xml`:
 
 ```
 
-2. Encrypt your Apache account password:
+2. 加密您的 Apache 账户密码：
 
 ```shell
 
@@ -319,9 +315,9 @@ mvn --encrypt-password your-apache-password
 
 ```
 
-Place the encrypted output into the `password` field in `settings.xml`
+将加密的输出放入 `settings.xml` 中的 `password` 字段
 
-#### Build and Publish Java Module
+#### 构建并发布 Java 模块
 
 ```shell
 
@@ -339,7 +335,7 @@ mvn -T10 clean deploy -Papache-release -DskipTests -Dgpg.skip=false
 
 ```
 
-#### Build and Publish Kotlin Module
+#### 构建并发布 Kotlin 模块
 
 ```shell
 
@@ -352,7 +348,7 @@ mvn -T10 clean deploy -Papache-release -DskipTests -Dgpg.skip=false
 
 ```
 
-#### Build and Publish Scala Module
+#### 构建并发布 Scala 模块
 
 ```shell
 
@@ -378,34 +374,34 @@ echo "Scala JAR deployment succeeded!"
 
 ```
 
-#### Lock the Release in Nexus
+#### 在 Nexus 中锁定发布
 
-After completing the publication of all modules, perform the following steps in Nexus:
+完成所有模块的发布后，在 Nexus 中执行以下步骤：
 
-1. Log in to the Apache Nexus repository management interface
-2. Navigate to the "Snapshots" or "Releases" repository (depending on your release type)
-3. Locate the latest Geaflow project version
-4. Execute the "Close" operation to validate all uploaded artifacts
-5. After successful validation, execute the "Release" operation to finalize the deployment
+1. 登录到 Apache Nexus 仓库管理界面
+2. 导航到 "Snapshots" 或 "Releases" 仓库（取决于您的发布类型）
+3. 找到最新的 Geaflow 项目版本
+4. 执行 "Close" 操作以验证所有上传的构件
+5. 验证成功后，执行 "Release" 操作以完成部署
 
-These steps ensure all published artifacts are verified and correctly deployed to the public repository.
+这些步骤确保所有发布的构件都经过验证并正确部署到公共仓库。
 
-### build a Pre-release
+### 构建预发布版本
 
-You need to build a Pre-release before voting, such as:  
+您需要在投票前构建预发布版本，例如：
 [https://github.com/apache/Geaflow/releases/tag/v0.12.0-rc1](https://github.com/apache/fory/releases/tag/v0.12.0-rc1)
 
-### Geaflow Community Vote（可选）
+### Geaflow 社区投票（可选）
 
-you need send a email to Geaflow Community: dev@Geaflow.apache.org:
+您需要向 Geaflow 社区发送电子邮件：dev@Geaflow.apache.org：
 
-Title:
+标题：
 
 ```plain
 [VOTE] Release Apache Geaflow v${release_version}-${rc_version}
 ```
 
-Content:
+内容：
 
 ```plain
 Hello, Apache Geaflow Community:
@@ -465,8 +461,8 @@ Thanks,
 ${name}
 ```
 
-After at least 3 +1 binding vote (from Geaflow Podling PMC member and committers) and no veto,  
-first, reply to the above voting thread to notify that the voting has ended.
+在至少获得 3 个 +1 绑定投票（来自 Geaflow Podling PMC 成员和提交者）且无反对票后，
+首先，回复上述投票线程通知投票已结束。
 
 ```plain
 Hi all,
@@ -481,15 +477,15 @@ Best,
 ${name}
 ```
 
-Immediately afterward, launch a new voting thread to claim the voting results.
+随后，立即启动一个新的投票线程来宣布投票结果。
 
-Title:
+标题：
 
 ```plain
 [RESULT][VOTE] Release Apache Geaflow v${release_version}-${rc_version}
 ```
 
-Content:
+内容：
 
 ```plain
 Hello, Apache Geaflow Community,
@@ -511,51 +507,48 @@ Thanks,
 ${name}
 ```
 
-### What if vote fail
+### 如果投票失败怎么办
 
-If the vote failed, click "Drop" to drop the staging Maven artifacts.
+如果投票失败，请点击 "Drop" 放弃暂存的 Maven 构件。
 
-Address the raised issues, then bump `rc_version` and file a new vote again.
+解决提出的问题，然后升级 `rc_version` 并再次发起新的投票。
 
-## <font style="background-color:#FBDE28;">Official Release</font>
+## <font style="background-color:#FBDE28;">正式发布</font>
 
-### Publish artifacts to SVN Release Directory
+### 将构件发布到 SVN 发布目录
 
-- release_version: the release version for Geaflow, like 0.5.0
-- release_candidate_version: the version for voting, like 0.5.0-rc1
+- release_version: Geaflow 的发布版本，如 0.5.0
+- release_candidate_version: 投票的版本，如 0.5.0-rc1
 
 ```bash
 svn mv https://dist.apache.org/repos/dist/dev/Geaflow/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/Geaflow/${release_version} -m "Release Geaflow ${release_version}"
 ```
 
-In the repository at [https://dist.apache.org/repos/dist/dev/Geaflow/](https://dist.apache.org/repos/dist/dev/fory/), if any  
-outdated release_candidate_version are left behind when releasing the release_version,  
-please clear them to keep the dev repository tidy.
+在仓库 [https://dist.apache.org/repos/dist/dev/Geaflow/](https://dist.apache.org/repos/dist/dev/fory/) 中，如果在发布 release_version 时留下了任何过时的 release_candidate_version，
+请清理它们以保持 dev 仓库整洁。
 
-When `https://archive.apache.org/dist/Geaflow/0.12.0/${release_version}` is  
-accessible (confirming that the release_version has been successfully released  
-and archived), we may clean up the previous release version in the release repository,  
-leaving only the current version.
+当 `https://archive.apache.org/dist/Geaflow/0.12.0/${release_version}` 可访问时（确认 release_version 已成功发布并归档），我们可以清理发布仓库中的以前版本，
+只留下当前版本。
 
-### Update Geaflow&Geaflow-Site content
+### 更新 Geaflow 和 Geaflow-Site 内容
 
-Submit a PR to [https://github.com/apache/Geaflow-site](https://github.com/apache/fory-site) to update Geaflow-site.  
-Reference implementation: [#283](https://github.com/apache/fory-site/pull/283)  
-and [#285](https://github.com/apache/fory-site/pull/285).
+提交 PR 到 [https://github.com/apache/Geaflow-site](https://github.com/apache/fory-site) 更新 Geaflow-site。
+参考实现：[#283](https://github.com/apache/fory-site/pull/283)
+和 [#285](https://github.com/apache/fory-site/pull/285)。
 
-#### Update Geaflow-Site
+#### 更新 Geaflow-Site
 
-In general, the following two key areas need to be modified:
+一般来说，需要修改以下两个关键区域：
 
-1. Write a new announcement, for example:  
-   Add a new markdown file under the blog folder:
+1. 撰写新的公告，例如：
+   在 blog 文件夹下添加新的 markdown 文件：
 
 ```plain
 The Apache Geaflow team is pleased to announce the [?] release. This is a major release that includes [? PR](https://github.com/apache/Geaflow/compare/v[?]...v[?]) from ? distinct contributors. See the [Install](https://Geaflow.apache.org/docs/docs/start/install) Page to learn how to get the libraries for your platform.
 ```
 
-2. Replace versions by upgrading old versions to new ones.  
-   For example, in [install](https://fory.apache.org/docs/docs/start/install/#java) section, it is necessary to update the documentation for both the development branch and the latest release branch::
+2. 通过将旧版本升级到新版本来替换版本。
+   例如，在 [install](https://fory.apache.org/docs/docs/start/install/#java) 部分，需要同时更新开发分支和最新发布分支的文档：
 
 ```plain
 <dependency>
@@ -566,33 +559,33 @@ The Apache Geaflow team is pleased to announce the [?] release. This is a major 
 
 ```
 
-#### Update Geaflow
+#### 更新 Geaflow
 
-Submit a PR to [https://github.com/apache/fury](https://github.com/apache/fury) to update [README](https://github.com/apache/fury/blob/main/README.md),  
-like [#2207](https://github.com/apache/fury/pull/2207).
+提交 PR 到 [https://github.com/apache/fury](https://github.com/apache/fury) 更新 [README](https://github.com/apache/fury/blob/main/README.md)，
+如 [#2207](https://github.com/apache/fury/pull/2207)。
 
-### Github officially released
+### Github 正式发布
 
-You need to officially release this version in the Geaflow project  
-Reference implementation: [https://github.com/apache/Geaflow/releases/tag/v0.12.0](https://github.com/apache/fory/releases/tag/v0.12.0)
+您需要在 Geaflow 项目中正式发布此版本
+参考实现：[https://github.com/apache/Geaflow/releases/tag/v0.12.0](https://github.com/apache/fory/releases/tag/v0.12.0)
 
-### Release Maven artifacts
+### 发布 Maven 构件
 
-- maven_artifact_number: the number for Maven staging artifacts, like 1001.
-- Open [https://repository.apache.org/#stagingRepositories](https://repository.apache.org/#stagingRepositories).
-- Find the artifact `orgapacheGeaflow-${maven_artifact_number}`, click "Release".
+- maven_artifact_number: Maven 暂存构件的编号，如 1001。
+- 打开 [https://repository.apache.org/#stagingRepositories](https://repository.apache.org/#stagingRepositories)。
+- 找到构件 `orgapacheGeaflow-${maven_artifact_number}`，点击 "Release"。
 
-### Send the announcement
+### 发送公告
 
-Send the release announcement to dev@Geaflow.apache.org and CC announce@apache.org.
+将发布公告发送到 dev@Geaflow.apache.org 并抄送 announce@apache.org。
 
-Title:
+标题：
 
 ```plain
 [ANNOUNCE] Apache Geaflow ${release_version} released
 ```
 
-Content:
+内容：
 
 ```plain
 Hi all,
@@ -627,6 +620,6 @@ Best Regards,
 ${your_name}
 ```
 
-Remember to use plain text instead of rich text format, or you may be rejected when CC announce@apache.org .
+请记住使用纯文本而不是富文本格式，否则在抄送 announce@apache.org 时可能会被拒绝。
 
-<font style="color:rgb(0, 0, 0);">After completing these steps, the Geaflow release process is complete.</font>
+<font style="color:rgb(0, 0, 0);">完成这些步骤后，Geaflow 发布流程即完成。</font>
