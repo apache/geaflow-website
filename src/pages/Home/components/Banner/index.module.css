@@ -68,6 +68,36 @@
   opacity: 0.8;
 }
 
+@media (max-width: 1180px) {
+  .banner {
+    flex-direction: column;
+    padding: 32px 24px;
+    min-height: auto;
+    gap: 20px;
+  }
+
+  .titleText {
+    text-align: center;
+    font-size: 42px;
+    line-height: 1.1;
+  }
+
+  .descriptionText {
+    width: 80vw;
+    margin-top: 8px;
+  }
+
+  .buttonContainer {
+    margin-top: 24px;
+  }
+
+  .icon {
+    margin-right: 0;
+    width: 320px;
+    height: 320px;
+  }
+}
+
 @media (max-width: 767.99px) {
   .descriptionText {
     width: 90vw;
